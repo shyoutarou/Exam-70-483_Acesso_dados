@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_JSONClient", "WCF_JSONClient\WCF_JSONClient.csproj", "{5067E719-FD3F-4B90-94C0-4559B0B0973C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5067E719-FD3F-4B90-94C0-4559B0B0973C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5067E719-FD3F-4B90-94C0-4559B0B0973C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5067E719-FD3F-4B90-94C0-4559B0B0973C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5067E719-FD3F-4B90-94C0-4559B0B0973C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE6A6B74-01A8-4014-B7AB-50D0DD50EE9F}
+	EndGlobalSection
+EndGlobal

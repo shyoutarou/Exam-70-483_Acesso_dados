@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4ce549b6-46c5-4dcb-b4e5-990a2492c73b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52042/SchoolService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SchoolService.disco" MetadataType="Disco" ID="31ef5b03-a31c-4a93-b4f3-c7ed66aec7ea" SourceId="1" SourceUrl="http://localhost:52042/SchoolService.svc?disco" />
+    <MetadataFile FileName="SchoolService.wsdl" MetadataType="Wsdl" ID="54cb9ecb-2b56-4dc7-beaa-a01919eb57d8" SourceId="1" SourceUrl="http://localhost:52042/SchoolService.svc?wsdl" />
+    <MetadataFile FileName="SchoolService.xsd" MetadataType="Schema" ID="13e0f69d-888b-45ba-9469-3e14c2e39bd3" SourceId="1" SourceUrl="http://localhost:52042/SchoolService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SchoolService2.xsd" MetadataType="Schema" ID="52247940-0146-4d75-9e6f-cfb06ddfacce" SourceId="1" SourceUrl="http://localhost:52042/SchoolService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SchoolService1.xsd" MetadataType="Schema" ID="16e2745e-3abd-4f7b-b145-afc9d9ab8044" SourceId="1" SourceUrl="http://localhost:52042/SchoolService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SchoolService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52042/SchoolService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52042/SchoolService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52042/SchoolService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WebWCF" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISchoolService_echoWithGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:echoWithGet" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_echoWithGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:echoWithGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_echoWithPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:echoWithPost" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_echoWithPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:echoWithPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_GetStudents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudents" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_GetStudents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_GetStudent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudent" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_GetStudent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_CreateStudent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStudent" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_CreateStudent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_UpdateStudent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStudent" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_UpdateStudent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_DeleteStudent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStudent" />
+  </wsdl:message>
+  <wsdl:message name="ISchoolService_DeleteStudent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStudentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISchoolService">
+    <wsdl:operation name="echoWithGet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/echoWithGet" message="tns:ISchoolService_echoWithGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/echoWithGetResponse" message="tns:ISchoolService_echoWithGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="echoWithPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/echoWithPost" message="tns:ISchoolService_echoWithPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/echoWithPostResponse" message="tns:ISchoolService_echoWithPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/DoWork" message="tns:ISchoolService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/DoWorkResponse" message="tns:ISchoolService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/GetStudents" message="tns:ISchoolService_GetStudents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/GetStudentsResponse" message="tns:ISchoolService_GetStudents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/GetStudent" message="tns:ISchoolService_GetStudent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/GetStudentResponse" message="tns:ISchoolService_GetStudent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStudent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/CreateStudent" message="tns:ISchoolService_CreateStudent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/CreateStudentResponse" message="tns:ISchoolService_CreateStudent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStudent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/UpdateStudent" message="tns:ISchoolService_UpdateStudent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/UpdateStudentResponse" message="tns:ISchoolService_UpdateStudent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStudent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchoolService/DeleteStudent" message="tns:ISchoolService_DeleteStudent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchoolService/DeleteStudentResponse" message="tns:ISchoolService_DeleteStudent_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="SchoolService" />
+</wsdl:definitions>

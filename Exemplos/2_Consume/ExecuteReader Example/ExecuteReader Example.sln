@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteReader Example", "ExecuteReader Example\ExecuteReader Example.csproj", "{7BDF95BD-1ACB-48F8-A7A5-79F4919C605C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BDF95BD-1ACB-48F8-A7A5-79F4919C605C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BDF95BD-1ACB-48F8-A7A5-79F4919C605C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BDF95BD-1ACB-48F8-A7A5-79F4919C605C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BDF95BD-1ACB-48F8-A7A5-79F4919C605C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB20C437-3752-4F85-91EA-C0B47CF140A9}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "class_PipeStream_client", "class_PipeStream_client\class_PipeStream_client.csproj", "{C340E953-FCD4-43C0-B5C4-86349FCAB5B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C340E953-FCD4-43C0-B5C4-86349FCAB5B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C340E953-FCD4-43C0-B5C4-86349FCAB5B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C340E953-FCD4-43C0-B5C4-86349FCAB5B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C340E953-FCD4-43C0-B5C4-86349FCAB5B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79776324-5EFB-4BC2-AC13-AEC43DB58928}
+	EndGlobalSection
+EndGlobal
