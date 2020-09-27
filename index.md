@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+Welcome to the Exam-70-483_Acesso_dados wiki!
 
-You can use the [editor on GitHub](https://github.com/shyoutarou/Exam-70-483_Acesso_dados/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Resumo do treinamento para o exame.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/shyoutarou/Exam-70-483_Acesso_dados/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. [Criar_usar_tipos](https://github.com/shyoutarou/Exam-70-483_Criar_usar_tipos/wiki/Criar_usar_tipos)
+     - [GitHub Page](https://shyoutarou.github.io/Exam-70-483_Criar_usar_tipos/)
+2. [Gerenciar_fluxo](https://github.com/shyoutarou/Exam-70-483_Gerenciar_fluxo/wiki/Gerenciar_fluxo)
+     - [GitHub Page](https://shyoutarou.github.io/Exam-70-483_Gerenciar_fluxo/)
+3. [Acesso_dados](https://github.com/shyoutarou/Exam-70-483_Acesso_dados/wiki/Acesso_dados)
+     - [GitHub Page](https://shyoutarou.github.io/Exam-70-483_Acesso_dados/)
+4. [Depurar_segurança](https://github.com/shyoutarou/Exam-70-483_Depurar_segurança/wiki/Depurar_segurança)
+     - [GitHub Page](https://shyoutarou.github.io/Exam-70-483_Depurar_segurança/)
+5. [Csharp8_Csharp9](https://github.com/shyoutarou/Exam-70-483_Csharp8_Csharp9/wiki/Csharp8_Csharp9)
+     - [GitHub Page](https://shyoutarou.github.io/Exam-70-483_Csharp8_Csharp9/)
+6. [Questions](https://github.com/shyoutarou/Exam-70-483_Questions/wiki/Questions)
