@@ -1,9 +1,9 @@
-IMPLEMENTAR ACESSO AOS DADOS (25–30%)
+## IMPLEMENTAR ACESSO AOS DADOS (25–30%)
 
-Realizar operações de E/S 
-•	Ler e escrever arquivos e fluxos; ler e escrever a partir da rede usando classes no namespace System.Net; implementar operações de E/S assíncronas
+## Realizar operações de E/S 
+- **Ler e escrever arquivos e fluxos; ler e escrever a partir da rede usando classes no namespace System.Net; implementar operações de E/S assíncronas**
 
-Operações E/S de Arquivo e Diretórios
+### Operações E/S de Arquivo e Diretórios
 
 Interagir com arquivos é uma tarefa comum ao desenvolver um aplicativo, as operações de E/S se referem à leitura e gravação de arquivos de e para armazenamento. Os arquivos são armazenados em diretórios e o .NET Framework fornece um conjunto de classes para copiar, mover, excluir ou verificar a existência de arquivos ou diretórios. Um arquivo é uma coleção de bytes ordenada e nomeada que foi salva no armazenamento. Ao trabalhar com arquivos, você usa um fluxo (Stream). Um fluxo é um objeto na memória usado para representar a sequência de bytes em um arquivo. As classes especiais de File Reader e File Writer permitem trabalhar com fluxos codificados que são úteis  ao armazenar algum tipo de informação em arquivos, armazenar essas informações em um formato diferente (por exemplo, binário ou texto), ou quando você precisa enviar ou acessar algum tipo de dados pela rede. 
 
@@ -15,12 +15,13 @@ Esta sessão abordará os principais conceitos usados para interagir com o siste
 
 O .NET Framework fornece as classes para interagir com uma E/S de arquivo que pode ser encontrada no namespace System.IO. Este namespace é a coleção das classes base dedicadas a serviços de entrada e saída baseados em arquivos e memória.
 
-Trabalhando com o Drive
+### Trabalhando com o Drive
 
 DriveInfo é uma classe fornecida pelo .NET no System.IO, usada para interagir com uma mídia de armazenamento, que pode ser um disco rígido ou qualquer outro armazenamento (ou seja, disco removível). Esta classe fornece informações sobre as unidades, como nome, tamanho e espaço livre da unidade. Você também pode conhecer quais unidades estão disponíveis e que tipo elas são.
 
 Dentro do construtor do DriveInfo, o nome do Drive é passado e você pode acessar suas informações. Você também pode obter todas as unidades e buscar seus detalhes usando o método GetDrives () (método estático do DriveInfo classe). 
 
+```csharp
 DriveInfo d_info = new DriveInfo(@"C:\");
 Console.WriteLine("O nome é: " + d_info.Name);
 Console.WriteLine("Tipo de unidade é: " + d_info.DriveType);
@@ -42,25 +43,23 @@ foreach (DriveInfo info in driveInfo)
     }
 }
 
-Trabalhando com Diretórios e Arquivos
+```
+
+### Trabalhando com Diretórios e Arquivos
 
 O drive contém diretórios e arquivos. Para trabalhar com eles, DirectoryInfo ou Directory (Static Class) é usado. Ambas as classes podem ser usadas para acessar a estrutura de diretórios. Você pode acessar todos os arquivos das pastas (ou a subpasta), bem como o arquivo específico na pasta ou subpasta usando essas classes. Você também pode criar e executar outras operações relacionadas à pasta em uma nova pasta ou diretório usando essas classes.
 
 O C# fornece as seguintes classes para trabalhar com o sistema de arquivos. Eles podem ser usados para acessar diretórios, acessar arquivos, abrir arquivos para leitura ou gravação, criar um novo arquivo ou mover arquivos existentes de um local para outro, etc.
-Classe	Uso
-File
-É uma classe estática que fornece diferentes funcionalidades, como copiar, criar, mover, excluir, abrir para leitura ou gravação, criptografar ou descriptografar, verificar se existe um arquivo, anexar linhas ou texto ao conteúdo de um arquivo, obter a hora do último acesso, etc. 
-FileInfo 
-Fornece a mesma funcionalidade que uma classe File estática. Você tem mais controle sobre como executar operações de leitura/gravação em um arquivo escrevendo código manualmente para ler ou gravar bytes de um arquivo.
-Directory
-Euma classe estática que fornece funcionalidade para criar, mover, excluir e acessar um diretório ou subdiretórios.
-DirectoryInfo
-Fornece métodos de instância para criar, mover, excluir e acessar um diretório ou subdiretórios.
-Path
-É uma classe estática que fornece funcionalidades como recuperar a extensão de um arquivo, alterar a extensão de um arquivo, recuperar o caminho físico absoluto e outras funcionalidades relacionadas ao caminho usando uma variável string.
+|     Classe           |     Uso                                                           |
+|----------------------|-------------------------------------------------------------------|
+|     File             |     É uma classe estática que fornece diferentes   funcionalidades, como copiar, criar, mover, excluir, abrir para leitura ou   gravação, criptografar ou descriptografar, verificar se existe um arquivo,   anexar linhas ou texto ao conteúdo de um arquivo, obter a hora do último   acesso, etc.     |
+|     FileInfo         |     Fornece a mesma funcionalidade que uma classe   File estática. Você tem mais controle sobre como executar operações de   leitura/gravação em um arquivo escrevendo código manualmente para ler ou   gravar bytes de um arquivo.                |
+|     Directory        |     Euma classe estática que fornece funcionalidade   para criar, mover, excluir e acessar um diretório ou   subdiretórios.                                    |
+|     DirectoryInfo    |     Fornece métodos de instância para criar, mover,   excluir e acessar um diretório ou subdiretórios.        |
+|     Path             |     É uma classe estática que fornece   funcionalidades como recuperar a extensão de um arquivo, alterar a extensão   de um arquivo, recuperar o caminho físico absoluto e outras funcionalidades   relacionadas ao caminho usando uma variável string.        |
 
 
-DIRECTORY E DIRECTORYINFO
+### DIRECTORY E DIRECTORYINFO
 
 A classe Directory é uma classe estática que executa uma única operação. Geralmente, é preferível usar em casos como ao executar uma única tarefa,como apenas criar uma pasta.
 
@@ -68,26 +67,29 @@ DirectoryInfo é uma classe não estática que executa várias operações. Gera
 
 A classe DirectoryInfo herda do objeto System.IO.FileSystemInfo e, assim como o objeto FileInfo, contém as mesmas propriedades adequadas para os atributos, hora da criação, extensão, nome completo, última hora de acesso e última. hora de gravação do diretório. As propriedades para a classe DirectoryInfo estão listadas na Tabela 9-22.
 
-Propriedades e métodos importantes de DirectoryInfo:
-Propriedade 	Descrição
-Exists	Retorna um booleano indicando se o diretório existe
-Name	Obtém o nome da instância DirectoryInfo
-Parent	Retorna um objeto DirectoryInfo do diretório pai
-Root	Retorna um objeto DirectoryInfo do diretório raiz
+### Propriedades e métodos importantes de DirectoryInfo:
+
+|     Propriedade     |     Descrição                                                |
+|---------------------|--------------------------------------------------------------|
+|     Exists          |     Retorna um booleano   indicando se o diretório existe    |
+|     Name            |     Obtém o nome da   instância DirectoryInfo                |
+|     Parent          |     Retorna um objeto   DirectoryInfo do diretório pai       |
+|     Root            |     Retorna um objeto   DirectoryInfo do diretório raiz      |
 
 O objeto Directory e DirectoryInfo possui métodos semelhantes que executam a mesma operação; a única diferença é que, como o objeto Directory é estático, os métodos levam parâmetros para os diretórios a serem manipulados, e o objeto DirectoryInfo manipula o diretório da instância. A tabela abaixo lista alguns dos métodos comuns entre o objeto Directory e DirectoryInfo.
-Método 	Descrição
-Create (DirectoryInfo)	Cria o diretório
-CreateDirectory (Directory)	
-Delete	Exclui o diretório
-GetAccessControl	Retorna um objeto DirectorySecurity que encapsula as entradas da lista de controle de acesso para o diretório atual
-GetDirectories	Retorna uma matriz DirectoryInfo dos subdiretórios no diretório atual
-GetFiles	Retorna uma matriz FileInfo dos arquivos no diretório atual
-GetFileSystemInfos	Retorna uma matriz FileSystemInfo dos arquivos e diretórios no diretório atual
-MoveTo (DirectoryInfo)	Move um diretório
-Move (Directory)	
-SetAccessControl	Aplica entradas da lista de controle de acesso descritas por um objeto DirectorySecurity ao diretório atual
 
+|     Método                         |     Descrição                                       |
+|------------------------------------|-----------------------------------------------------|
+|     Create (DirectoryInfo)  <br>      CreateDirectory (Directory)     |     Cria o diretório             |
+|     Delete                         |     Exclui o diretório              |
+|     GetAccessControl               |     Retorna um objeto   DirectorySecurity que encapsula as entradas da lista de controle de acesso   para o diretório atual    |
+|     GetDirectories                 |     Retorna uma matriz   DirectoryInfo dos subdiretórios no diretório atual                  |
+|     GetFiles                       |     Retorna uma matriz FileInfo dos arquivos no diretório atual                         |
+|     GetFileSystemInfos             |     Retorna uma matriz   FileSystemInfo dos arquivos e diretórios no diretório atual             |
+|     MoveTo (DirectoryInfo)    <br>   Move (Directory)        |     Move um diretório       |
+|     SetAccessControl               |     Aplica entradas da   lista de controle de acesso descritas por um objeto DirectorySecurity ao   diretório atual            |
+
+```csharp
 var path_Directory = @"C:\Users\x_kat\Desktop\Code_Estudos\01_Certificado_70-483\Udemy_Exam-70-483\Chapter 11\path_Directory";
 
 var path_DirectoryInfo = @"C:\Users\x_kat\Desktop\Code_Estudos\01_Certificado_70-483\Udemy_Exam-70-483\Chapter 11\path_DirectoryInfo";
@@ -122,15 +124,25 @@ else
     Console.WriteLine("********************");
 }
 
+```
+
 Conforme mostrado no código, você só precisa fornecer um caminho completo, juntamente com o nome de uma pasta na qual deseja criar a pasta como um parâmetro no método CreateDirectory() da classe Directory. Um novo diretório ou pasta será criado. Quando o caminho não é fornecido, por padrão, a pasta será criada no diretório atual em que você está trabalhando. 
 
 O código também mostra a criação de uma pasta pela classe DirectoryInfo no qual você pode executar outras operações fornecidas pela classe DirectoryInfo em uma pasta recém-criada, como o método Exist() (para verificar a existência de uma pasta), Delete() (para excluir a pasta) ou o método CreateSubdirectory() (para criar um subdiretório). Você pode tentar criar um novo diretório em um local em que não tenha permissões suficientes. Nesse caso, será lançada a seguinte exceção:
+
+```bash
 UnauthorizedAccessException
+```
+
 Você também pode excluir a pasta usando o método Delete(), mas se o diretório não for encontrado, você encontrará a seguinte exceção:
+
+```bash
 DirectoryNotFoundException.
+```
 
 Uma coisa importante a lembrar ao trabalhar com diretórios e arquivos é que o sistema operacional controla o acesso a todos os elementos no computador local ou em uma unidade de rede compartilhada. O acesso às pastas pode ser organizado usando a classe DirectorySecurity do sistema. Namespace Security.AccessControl. A Listagem 4-4 mostra como você pode usá-los para permitir que todos acessem uma pasta. Isso, é claro, requer que o programa em execução tenha os direitos para fazer essa modificação.
 
+```csharp
 DirectoryInfo directoryInfo = new DirectoryInfo(path_DirectoryInfo);
 
 directoryInfo.Create();
@@ -139,6 +151,8 @@ directorySecurity.AddAccessRule(new FileSystemAccessRule("everyone",
 FileSystemRights.ReadAndExecute, AccessControlType.Allow));
                 
 directoryInfo.SetAccessControl(directorySecurity);
+```
+
 
 Além dos métodos para criar e remover diretórios, você também pode consultar um método para atributos, subdiretórios ou arquivos. As classes Directory e DirectoryInfo possuem um método para recuperar todos os subdiretórios de um determinado diretório. Isso retorna uma matriz de objetos DirectoryInfo.
 
@@ -146,6 +160,7 @@ Você pode especificar um padrão de pesquisa e uma enumeração do tipo SearchO
 
 O exmplo a seguir mostra um exemplo de percorrer a árvore de diretórios manualmente e manipular qualquer exceção que possa ocorrer. Também mostra como usar um padrão de pesquisa para limitar os resultados a todas as pastas que contêm o caractere a. Ele limita a profundidade recursiva da função para garantir que você possa controlar quanto tempo o método leva para executar.
 
+```csharp
 private static void ListDirectories(DirectoryInfo directoryInfo, string searchPattern, int maxLevel, int currentLevel)
 {
     if (currentLevel >= maxLevel)
@@ -179,15 +194,18 @@ private static void ListDirectories(DirectoryInfo directoryInfo, string searchPa
 
 DirectoryInfo directoryInfo = new DirectoryInfo(@"C:\Program Files");
 ListDirectories(directoryInfo, "*a*", 5, 0);
+```
 
 Um padrão de pesquisa pode consistir em vários caracteres curinga que formam um padrão de pesquisa como você pode ver na tabela abaixo:
 
-Caractere	Descrição	Exemplo
-* 	Zero ou mais caracteres	*m* corresponde a Arquivos e mídia comuns, mas não ao Windows
-? 	Exatamente um caractere	?edia corresponde à mídia, mas não ao Windows Media Player
+|     Caractere    |     Descrição                    |     Exemplo            |
+|------------------|----------------------------------|-----------------|
+|     *            |     Zero   ou mais caracteres    |     *m*   corresponde a Arquivos e mídia comuns, mas não ao Windows    |
+|     ?            |     Exatamente   um caractere    |     ?edia   corresponde à mídia, mas não ao Windows Media Player       |
 
 Ao trabalhar com a enorme estrutura de diretórios, use o método EnumerateDirectories()em vez do método GetDirectories() para buscar os diretórios, pois EnumerateDirectories() começa a enumerar diretórios antes que eles tenham sido completamente recuperados (execução tardia/deferred execution); enquanto que no caso GetDirectories(), o código não avançaria até que toda a lista de diretórios fosse recuperada (execução imediata/ immediate execution)
 
+```csharp
 DriveInfo d_info = new DriveInfo(@"C:\");
 var diretorios_get = d_info.RootDirectory.GetDirectories();
 var diretorios_info = d_info.RootDirectory.EnumerateDirectories();
@@ -197,20 +215,26 @@ foreach (var dirinfo in diretorios_info)
     Console.WriteLine("O nome é:" + dirinfo.Name);
 }
 
+```
+
 Outro método que pode ser útil é o método MoveTo em DirectoryInfo ou Move nas classes de diretório quando você deseja mover um diretório existente para um novo local. 
 
+```csharp
 //Using Directory Class
 Directory.Move(@"C:\source", @"c:\destination");
 //Using DirectoryInfo Class
 DirectoryInfo directorymove = new DirectoryInfo(@"C:\Source");
 directoryInfo.MoveTo(@"C:\destination");
+```
+
 
 O método Move() é usado com a classe Directory (classe estática), enquanto o método MoveTo() é usado com a classe DirectoryInfo. O método Move () requer que você conheça o caminho do diretório de origem e o caminho do diretório de destino, enquanto o método MoveTo() exige apenas o caminho do diretório de destino porque o objeto DirectoryInfo já restringe a referência do caminho do diretório de origem.
 
-Função GetFiles
+### Função GetFiles
 
 A classe Directory ou DirectoryInfo pode também ser usada para buscar todos os arquivos em uma pasta específica ou sua subpasta ou arquivos com tipos específicos (como imagens), já a classe File ou FileInfo é usada para acessar as informações desses arquivos ou para executar operações nesses arquivos. Estas classes permitem interagir com arquivos para, por exemplo, criar um arquivo ou excluir um arquivo ou verificar sua existência
 
+```csharp
 path_Directory = @"C:\Windows";
 path_DirectoryInfo = @"C:\Inetpub";
 
@@ -228,42 +252,47 @@ foreach (var file in files)
 {
     Console.WriteLine("O nome é: {0}", file.Name);
 }
+```
+
 
 A classe Directory fornecerá apenas nomes de arquivos no diretório fornecido, enquanto DirectoryInfo retornará um objeto FileInfo(Class) no qual você pode executar operações relacionadas a arquivos.
 
-FILE AND FILEINFO
+### FILE AND FILEINFO
 
 A classe File e FileInfo é semelhante, exceto que a classe File é estática e contém apenas métodos nos quais a classe FileInfo permite criar uma instância que represente um arquivo, portanto ela possui propriedades e métodos. Observe que a classe File não possui propriedades porque é uma classe estática. 
 
 Os métodos para a classe File e FileInfo também são semelhantes. Esteja ciente de que os parâmetros são diferentes com base no uso de um objeto File ou FileInfo. Os métodos para a classe File usam parâmetros a um caminho de arquivo já os métodos da classe FileInfo usam uma instância em vez de parâmetros. Alguns dos métodos comuns entre a classe File e FileInfo são: AppendAllText, CopyTo/Copy, Create, Decrypt, Delete, Encrypt, MoveTo, Open, Replace, SetAccessControl.
 
-File
+### File
 
 O C# inclui a classe File estática para executar operações de E/S no sistema de arquivos físico. A classe estática File inclui vários métodos utilitários para interagir com arquivos físicos de qualquer tipo, por exemplo binário, texto etc. Use esta classe estática File para executar alguma operação rápida no arquivo físico. Não é recomendável usar a classe File para várias operações em vários arquivos ao mesmo tempo devido a razões de desempenho. Use a classe FileInfo nesse cenário.
 
-Métodos importantes da classe de arquivo estático
-Método	Descrição
-AppendAllLines 	Anexa linhas a um arquivo e, em seguida, fecha o arquivo. Se o arquivo especificado não existir, esse método cria um arquivo, grava as linhas especificadas no arquivo e fecha o arquivo.
-AppendAllText 	Abre um arquivo, anexa a sequência especificada ao arquivo e, em seguida, fecha o arquivo. Se o arquivo não existir, esse método cria um arquivo, grava a sequência especificada no arquivo e fecha o arquivo.
-AppendText 	Cria um StreamWriter que anexa o texto codificado em UTF-8 a um arquivo existente ou a um novo arquivo se o arquivo especificado não existir.
-Copy 	Copia um arquivo existente para um novo arquivo. Não é permitido substituir um arquivo com o mesmo nome.
-Create 	Cria ou substitui um arquivo no caminho especificado.
-CreateText	Cria ou abre um arquivo para escrever texto codificado em UTF-8.
-Decrypt	Descriptografa um arquivo que foi criptografado pela conta atual usando o método Criptografar.
-Delete	Exclui o arquivo especificado.
-Encrypt	Criptografa um arquivo para que somente a conta usada para criptografar o arquivo possa descriptografá-lo.
-Exists	Determina se o arquivo especificado existe.
-GetAccessControl	Obtém um objeto FileSecurity que encapsula as entradas da lista de controle de acesso (ACL) para um arquivo especificado.
-Move	Move um arquivo especificado para um novo local, fornecendo a opção de especificar um novo nome de arquivo.
-Open	Abre um FileStream no caminho especificado com acesso de leitura / gravação.
-ReadAllBytes	Abre um arquivo binário, lê o conteúdo do arquivo em uma matriz de bytes e, em seguida, fecha o arquivo.
-ReadAllLines	Abre um arquivo de texto, lê todas as linhas do arquivo e depois o fecha.
-ReadAllText	Abre um arquivo de texto, lê todas as linhas do arquivo e depois o fecha.
-Replace	Substitui o conteúdo de um arquivo especificado pelo conteúdo de outro arquivo, excluindo o arquivo original e criando um backup do arquivo substituído.
-WriteAllBytes	Cria um novo arquivo, grava a matriz de bytes especificada no arquivo e fecha o arquivo. Se o arquivo de destino já existir, ele será substituído.
-WriteAllLines	Cria um novo arquivo, grava uma coleção de seqüências de caracteres no arquivo e fecha o arquivo.
-WriteAllText	Cria um novo arquivo, grava a sequência especificada no arquivo e, em seguida, fecha o arquivo. Se o arquivo de destino já existir, ele será substituído.
+### Métodos importantes da classe de arquivo estático
 
+|     Método              |     Descrição                   |
+|-------------------------|----------------------------|
+|     AppendAllLines      |     Anexa linhas a um   arquivo e, em seguida, fecha o arquivo. Se o arquivo especificado não   existir, esse método cria um arquivo, grava as linhas especificadas no   arquivo e fecha o arquivo.                         |
+|     AppendAllText       |     Abre um arquivo,   anexa a sequência especificada ao arquivo e, em seguida, fecha o arquivo. Se   o arquivo não existir, esse método cria um arquivo, grava a sequência   especificada no arquivo e fecha o arquivo.    |
+|     AppendText          |     Cria um StreamWriter   que anexa o texto codificado em UTF-8 a um arquivo existente ou a um novo   arquivo se o arquivo especificado não existir.      |
+|     Copy                |     Copia um arquivo   existente para um novo arquivo. Não é permitido substituir um arquivo com o   mesmo nome.      |
+|     Create              |     Cria ou substitui um   arquivo no caminho especificado.           |
+|     CreateText          |     Cria ou abre um   arquivo para escrever texto codificado em UTF-8.    |
+|     Decrypt             |     Descriptografa um   arquivo que foi criptografado pela conta atual usando o método Criptografar.      |
+|     Delete              |     Exclui o arquivo especificado.        |
+|     Encrypt             |     Criptografa um   arquivo para que somente a conta usada para criptografar o arquivo possa   descriptografá-lo.       |
+|     Exists              |     Determina se o   arquivo especificado existe.           |
+|     GetAccessControl    |     Obtém um objeto   FileSecurity que encapsula as entradas da lista de controle de acesso (ACL)   para um arquivo especificado.                        |
+|     Move                |     Move um arquivo   especificado para um novo local, fornecendo a opção de especificar um novo   nome de arquivo.     |
+|     Open                |     Abre um FileStream   no caminho especificado com acesso de leitura / gravação.            |
+|     ReadAllBytes        |     Abre um arquivo   binário, lê o conteúdo do arquivo em uma matriz de bytes e, em seguida, fecha   o arquivo.      |
+|     ReadAllLines        |     Abre um arquivo de   texto, lê todas as linhas do arquivo e depois o fecha.          |
+|     ReadAllText         |     Abre um arquivo de   texto, lê todas as linhas do arquivo e depois o fecha.      |
+|     Replace             |     Substitui o conteúdo   de um arquivo especificado pelo conteúdo de outro arquivo, excluindo o   arquivo original e criando um backup do arquivo substituído.    |
+|     WriteAllBytes       |     Cria um novo   arquivo, grava a matriz de bytes especificada no arquivo e fecha o arquivo.   Se o arquivo de destino já existir, ele será substituído.     |
+|     WriteAllLines       |     Cria um novo   arquivo, grava uma coleção de seqüências de caracteres no arquivo e fecha o   arquivo.            |
+|     WriteAllText        |     Cria um novo arquivo,   grava a sequência especificada no arquivo e, em seguida, fecha o arquivo. Se   o arquivo de destino já existir, ele será substituído.     |
+
+```csharp
 // Para criar um arquivo no local atual chamado "Arquivo" usando Arquivo (Classe estática)
 File.Create("Arquivo.txt").Close();
 // Para escrever conteúdo em um arquivo chamado "Arquivo"
@@ -291,26 +320,35 @@ FileInfo info = new FileInfo("ArquivoInfo.txt");
 info.Create().Close();
 // Para mover "FileInfo" do local atual para um novo (Pasta anterior)
 info.MoveTo("../Moved ArquivoInfo.txt");
+```
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/arquivoinfo.png" alt="Image" width="100%" />
+</p>
 
- 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/arquivoinfodebug.png" alt="Image" width="100%" />
+</p>
 
- 
 
 Como você notou na primeira linha de código, o método Create() é precedido pelo método Close(). Isso se deve ao arquivo(Classe estática) executando uma única operação que é, nesse caso, a criação de um arquivo e, após a criação de um arquivo, você deve fechá-lo antes de executar outra operação nele. É por isso que Close() é chamado após a criação: para que o arquivo possa ser gravado.
 
 Essas operações executadas em um arquivo são muito semelhantes às realizadas no Directory.Copy/CopyTo (métodos de File/FileInfo) deve ser usado onde você deseja deixar uma cópia em um local anterior e outra/outras em um novo local; considerando que Move/MoveTo (métodos de File/FileInfo) deve ser usado onde você não deseja deixar um copie em um local anterior, mas copie-o para um novo local. É como um comportamento de recortar e colar. Quando você precisar atualizar o conteúdo de um arquivo ou alterar o conteúdo de um arquivo já criado, você pode usar o método AppendText () fornecido pelas classes File e FileInfo. Basicamente, existem dois métodos diferentes para criar um arquivo. Estes são dados abaixo com detalhes:
-1.	Create ():Crie ou substitua um arquivo especificado em um parâmetro como Path e retorne o objeto do FileStream.
-2.	CreateText ():Crie ou abra um arquivo para escrever e retornar o objeto do StreamWriter.
+1.	**Create()**:Crie ou substitua um arquivo especificado em um parâmetro como Path e retorne o objeto do FileStream.
+2.	**CreateText()**:Crie ou abra um arquivo para escrever e retornar o objeto do StreamWriter.
 
 Repare que qunado a instrução File.Exists retorna false, você pode não pode assumir com segurança que o arquivo não existe, pois você pode não ser o único usuário acessando o sistema de arquivos. Enquanto você trabalha com o sistema de arquivos, outros usuários estão fazendo exatamente a mesma coisa. Talvez eles removem a pasta que você deseja usar para criar um novo arquivo. Ou eles alteram repentinamente as permissões em um arquivo para que você não possa mais acessá-lo.
 Normalmente, ao lidar com uma situação em que vários usuários acessam recursos compartilhados, começamos a usar um mecanismo de bloqueio para sincronizar o uso de recursos. O C# possui um mecanismo de bloqueio que você pode usar para sincronizar o acesso ao código quando vários segmentos estiverem envolvidos. Isso garante que um determinado pedaço de código não possa ser executado simultaneamente no mesmo momento. No entanto, o sistema de arquivos não possui esses mecanismos de bloqueio. É um sistema multithread, mas sem nenhum dos regulamentos de segurança que você deseja ver. Veja o código que determina se um arquivo existe e depois lê todo o texto nele.
 
+```csharp
 string path = @"C:\temp\test.txt";
 if (File.Exists(path))
     File.ReadAllText(path);
+```
+
 
 Outro usuário pode remover o arquivo entre a chamada para Exists e ReadAllText, o que causaria uma exceção. No entanto, você pode antecipar as exceções que podem ser lançadas e garantir que seu aplicativo saiba como lidar com elas. Veja a Listagem 4-21.
 
+```csharp
 string path = @"C:\temp\test.txt";
 try
 {
@@ -318,34 +356,50 @@ try
 }
 catch (DirectoryNotFoundException) { }
 catch (FileNotFoundException) { }
+```
+
 
 Ao trabalhar com o sistema de arquivos, lembre-se de que as exceções podem e ocorrerão. Um bom tratamento de exceções é importante para um aplicativo robusto que funciona com arquivos.
 
-Anexar linhas de texto
+### Anexar linhas de texto
 
-Use o método AppendAllLines () para anexar várias linhas de texto ao arquivo especificado, como mostrado abaixo. 
+Use o método AppendAllLines() para anexar várias linhas de texto ao arquivo especificado, como mostrado abaixo. 
 
+
+```csharp
 string dummyLines = "Esta é a primeira linha." + Environment.NewLine +
 "Esta é a segunda linha." + Environment.NewLine +
 "Esta é a terceira linha.";
 
 // Abre DummyFile.txt e acrescenta linhas. Se o arquivo não existir, crie e abra.
 File.AppendAllLines(@"Arquivo.txt", dummyLines.Split(Environment.NewLine.ToCharArray()));
+```
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/dummylines.png" alt="Image" width="100%" />
+</p>
  
-Anexar String
+
+### Anexar String
 
 Use o método File.AppendAllText () para anexar uma string a um arquivo em uma única linha de código, como mostrado abaixo.
 
+```csharp
 File.AppendAllText(@"Arquivo.txt", Environment.NewLine + "Adicionar uma string ao arquivo");
+```
 
-Substituir texto
+### Substituir texto
 
 Use o método File.WriteAllText () para escrever textos no arquivo. Observe que ele não acrescentará texto, mas substituirá os textos existentes.
 
+```csharp
 File.WriteAllText(@"Arquivo.txt", "Texto subtituido");
+```
+
 
 O exemplo a seguir mostra como executar operações diferentes usando a classe estática File.
 
+```csharp
 // Verifique se o arquivo existe ou não em um local específico
 bool isFileExists = File.Exists(@"C:\DummyFile.txt"); // retorna false
 
@@ -363,53 +417,60 @@ FileStream fs = File.Open(@"D:\DummyFile.txt", FileMode.OpenOrCreate);
 StreamReader sr = File.OpenText(@"D:\DummyFile.txt");
 // Excluir arquivo
 File.Delete(@"C:\DummyFile.txt");
+```
 
 Assim, é fácil trabalhar com arquivos físicos usando a classe estática File. No entanto, se você quiser mais flexibilidade, use a classe FileInfo. Da mesma maneira, use a classe Directory estática para trabalhar com diretórios físicos.
 
-FileInfo
+### FileInfo
 
 Você aprendeu a executar tarefas diferentes em arquivos físicos usando a classe estática File na seção anterior. Aqui, usaremos a classe FileInfo para executar operações de leitura/gravação em arquivos físicos. A classe FileInfo fornece a mesma funcionalidade que a classe estática File, mas você tem mais controle sobre operações de leitura/gravação em arquivos escrevendo código manualmente para ler ou gravar bytes de um arquivo.
 
 O objeto FileInfo, diferentemente do objeto File, herda do objeto System.IO.FileSystemInfo, que contém propriedades para os atributos, hora da criação, extensão, nome completo, última hora de acesso e última hora de gravação do arquivo. 
 
-Propriedades e métodos importantes de FileInfo:
-Propriedade 	Descrição
-Directory 	Obtém uma instância do diretório pai.
-DirectoryName 	Obtém uma string representando o caminho completo do diretório.
-Exists 	Obtém um valor indicando se existe um arquivo.
-Extension 	Obtém a string que representa a parte da extensão do arquivo.
-FullName 	Obtém o caminho completo do diretório ou arquivo.
-IsReadOnly 	Obtém ou define um valor que determina se o arquivo atual é somente leitura.
-LastAccessTime 	Obtém ou define a hora em que o arquivo ou diretório atual foi acessado pela última vez
-LastWriteTime 	Obtém ou define o horário em que o arquivo ou diretório atual foi gravado pela última vez.
-Length 	Obtém o tamanho, em bytes, do arquivo atual.
-Name 	Obtém o nome do arquivo.
-…
-Método 	Descrição
-AppendText 	Cria um StreamWriter que acrescenta texto ao arquivo representado por esta instância do FileInfo.
-CopyTo 	Copia um arquivo existente para um novo arquivo, impedindo a substituição de um arquivo existente.
-Create 	Cria um arquivo.
-CreateText 	Cria um StreamWriter que grava um novo arquivo de texto.
-Decrypt	Descriptografa um arquivo que foi criptografado pela conta atual usando o método Criptografar.
-Delete	Exclui o arquivo especificado.
-Encrypt	Criptografa um arquivo para que somente a conta usada para criptografar o arquivo possa descriptografá-lo.
-GetAccessControl	Obtém um objeto FileSecurity que encapsula as entradas da lista de controle de acesso (ACL) para um arquivo especificado.
-MoveTo	Move um arquivo especificado para um novo local, fornecendo a opção de especificar um novo nome de arquivo.
-Open	Abre um no FileMode especificado.
-OpenRead	Cria um FileStream somente leitura.
-OpenText	Cria um StreamReader com codificação UTF8 que lê de um arquivo de texto existente.
-OpenWrite	Cria um FileStream somente para gravação.
-Replace	Substitui o conteúdo de um arquivo especificado pelo arquivo descrito pelo objeto FileInfo atual, excluindo o arquivo original e criando um backup do arquivo substituído.
-ToString	Retorna um caminho como string.
+|     Propriedade        |     Descrição                       |
+|------------------------|-------------------------------------|
+|     Directory          |     Obtém uma instância   do diretório pai.    |
+|     DirectoryName      |     Obtém uma string   representando o caminho completo do diretório.    |
+|     Exists             |     Obtém um valor   indicando se existe um arquivo.       |
+|     Extension          |     Obtém a string que   representa a parte da extensão do arquivo.  |
+|     FullName           |     Obtém o caminho   completo do diretório ou arquivo.      |
+|     IsReadOnly         |     Obtém ou define um valor   que determina se o arquivo atual é somente leitura.  |
+|     LastAccessTime     |     Obtém ou define a   hora em que o arquivo ou diretório atual foi acessado pela última vez       |
+|     LastWriteTime      |     Obtém ou define o   horário em que o arquivo ou diretório atual foi gravado pela última vez.    |
+|     Length             |     Obtém o tamanho, em   bytes, do arquivo atual.      |
+|     Name               |     Obtém o nome do   arquivo.       |
+
+
+|     Método              |     Descrição                  |
+|-------------------------|--------------------------------|
+|     AppendText          |     Cria um StreamWriter   que acrescenta texto ao arquivo representado por esta instância do FileInfo.        |
+|     CopyTo              |     Copia um arquivo   existente para um novo arquivo, impedindo a substituição de um arquivo   existente.        |
+|     Create              |     Cria um arquivo.                    |
+|     CreateText          |     Cria um StreamWriter   que grava um novo arquivo de texto.             |
+|     Decrypt             |     Descriptografa um   arquivo que foi criptografado pela conta atual usando o método Criptografar.              |
+|     Delete              |     Exclui o arquivo especificado.               |
+|     Encrypt             |     Criptografa um   arquivo para que somente a conta usada para criptografar o arquivo possa   descriptografá-lo.            |
+|     GetAccessControl    |     Obtém um objeto   FileSecurity que encapsula as entradas da lista de controle de acesso (ACL)   para um arquivo especificado.           |
+|     MoveTo              |     Move um arquivo   especificado para um novo local, fornecendo a opção de especificar um novo nome de arquivo.            |
+|     Open                |     Abre um no FileMode especificado.              |
+|     OpenRead            |     Cria um FileStream somente leitura.           |
+|     OpenText            |     Cria um StreamReader   com codificação UTF8 que lê de um arquivo de texto existente.                  |
+|     OpenWrite           |     Cria um FileStream   somente para gravação.            |
+|     Replace             |     Substitui o conteúdo   de um arquivo especificado pelo arquivo descrito pelo objeto FileInfo atual,   excluindo o arquivo original e criando um backup do arquivo substituído.    |
+|     ToString            |     Retorna um caminho   como string.                 |
+
 
 O construtor da classe FileInfo usa um parâmetro de string que contém o caminho e o nome do arquivo. Este é o único construtor para o objeto FileInfo. O exemplo de código a seguir cria uma instância de um objeto FileInfo e grava o nome do arquivo na janela Saída:
 
+```csharp
 // Cria o objeto FileInfo para o caminho especificado
 FileInfo fi = new FileInfo(@"DummyFile.txt");
 Console.WriteLine(fi.Name);
+```
 
-	Repare que o arquivo não foi "aberto"; a instância está simplesmente permitindo que você obtenha informações sobre o arquivo. Existem métodos que permitem abrir e alterar o conteúdo do arquivo, mas simplesmente criar uma instância de um objeto FileInfo não abre o arquivo. O exemplo a seguir mostra como ler bytes de um arquivo manualmente e depois convertê-los em uma string usando a codificação UTF8:
+Repare que o arquivo não foi "aberto"; a instância está simplesmente permitindo que você obtenha informações sobre o arquivo. Existem métodos que permitem abrir e alterar o conteúdo do arquivo, mas simplesmente criar uma instância de um objeto FileInfo não abre o arquivo. O exemplo a seguir mostra como ler bytes de um arquivo manualmente e depois convertê-los em uma string usando a codificação UTF8:
 
+```csharp
 // Cria o objeto FileInfo para o caminho especificado
 FileInfo fi = new FileInfo(@"DummyFile.txt");
 
@@ -441,8 +502,11 @@ break;
 string filestring = Encoding.UTF8.GetString(fileBytes);
 Console.WriteLine(filestring);
 
+```
+
 Como você viu no código acima, você deve escrever muito código para ler/escrever uma string de um FileSream. A mesma operação de leitura/gravação pode ser feita facilmente usando o StreamReader e o StreamWriter. O exemplo a seguir mostra como o StreamReader facilita a leitura de strings de um arquivo:
 
+```csharp
 // Cria o objeto FileInfo para o caminho especificado
 FileInfo fi = new FileInfo(@"DummyFile.txt");
 
@@ -467,94 +531,117 @@ using (StreamReader reader = new StreamReader(@"DummyFile.txt"))
 string contents = reader.ReadToEnd();
     Console.WriteLine("using StreamReader: " + contents);
 }
+```
 
 Observe que fi.Open() possui três parâmetros: O primeiro parâmetro é FileMode para criar e abrir um arquivo, se ele não existir; o segundo parâmetro, FileAccess, é indicar uma operação de leitura; e o terceiro parâmetro é compartilhar o arquivo para leitura com outros usuários enquanto o arquivo estiver aberto. O exemplo a seguir mostra como o StreamWriter facilita a gravação de strings em um arquivo:
 
+```csharp
 using (StreamWriter writer = new StreamWriter(fs))
 {
 // Crie o objeto StreamWriter para gravar a string no FileSream
     writer.WriteLine(Environment.NewLine + "Outra linha do streamwriter");
 }
+```
 
 Operações de leitura e gravação não são possíveis no mesmo objeto FileStream simultaneamente. 
 
+```bash
 System.IO.IOException: 'O processo não pode acessar o arquivo ‘DummyFile.txt' porque ele está sendo usado por outro processo.'
+```
 
 Se você já estiver lendo um arquivo, crie um objeto FileStream separado para gravar no mesmo arquivo. Assim, você pode usar as classes FileInfo, StreamReader e StreamWriter para ler/gravar o conteúdo do arquivo físico.
 
+```csharp
 FileInfo fi = new FileInfo(@"D:\DummyFile.txt");
 
 FileStream fsToRead = fi.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
 FileStream fsToWrite = fi.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+```
 
-Trabalhando com caminhos (path)
+### Trabalhando com caminhos (path)
 
 Ao acessar arquivos, você geralmente precisa combinar um diretório e um nome de arquivo. Concatená-los manualmente usando a adição simples de cadeias pode funcionar, mas é propenso a erros. Nunca tente adicionar manualmente seqüências de caracteres para formar um caminho. Sempre use a classe Path ao combinar várias seqüências para formar um caminho legal. Por exemplo, adicionar as seqüências de caracteres mostradas abaixo resulta em um caminho inválido.
 
+```csharp
 string folder = @"C:\temp";
 string fileName = "test.dat";
 string fullPath = folder + fileName; // Results in C:\temptest.dat
+```
 
 A classe estática Path que pode ser encontrada no System.IO possui alguns métodos auxiliares para lidar com esses tipos de situações. Um desses métodos é o método estático Combine, que possui várias sobrecargas que aceitam vários parâmetros de seqüência de caracteres. O código abaixo mostra como o método Combine resulta em um caminho correto.
 
+```csharp
 string fullPath = Path.Combine(folder, fileName); // Results in C:\\temp\\test.dat
+```
 
 A classe Path oferece alguns outros métodos úteis: GetDirectoryName, GetExtensions, GetFileName e GetPathRoot. A Listagem 4-13 mostra como você pode usar esses métodos em uma sequência que contém um caminho completo.
 
+```csharp
 string path = @"C:\temp\subdir\file.txt";
 Console.WriteLine(Path.GetDirectoryName(path)); // Displays C:\temp\subdir
 Console.WriteLine(Path.GetExtension(path)); // Displays .txt
 Console.WriteLine(Path.GetFileName(path)); // Displays file.txt
 Console.WriteLine(Path.GetPathRoot(path)); // Displays C:\
+```
+
 
 A classe Path também pode ajudá-lo quando você precisar armazenar temporariamente alguns dados. Você pode usar GetRandomFileName para criar um arquivo ou nome de diretório aleatório. GetTempPath retorna o local da pasta temporária do usuário atual e GetTempFileName cria um arquivo temporário que você pode usar para armazenar alguns dados.
 
-Sumário
+**Sumário**
 1.	A classe DriveInfo oferece suporte para interagir com Drives.
 2.	O C# fornece as classes Directory e DirectoryInfo para interagir com os diretórios. A classe Directory é estática e fornece funcionalidades como criar, copiar, mover, excluir etc. para diretórios físicos com menos codificação e preferível para operações únicas, enquanto DirectoryInfo é preferível para várias operações.
 3.	File e FileInfo: as duas classes são usadas para interagir com arquivos. A classe File é uma classe estática para leitura/gravação de arquivo físico com menos codificação e preferível para executar uma única operação em um arquivo, enquanto FileInfo é para várias operações.
 4.	A classe FileInfo e DirectoryInfo fornece a mesma funcionalidade da classe estática File and Directory.
 
-STREAM
+### STREAM
 
 Stream é uma classe abstrata usada para escrever e ler bytes. É para operações de E/S de arquivo. Ao trabalhar com arquivos, é importante saber sobre o Stream, porque um arquivo é armazenado no disco rígido ou no DVD do computador em uma sequência de bytes. Ao se comunicar pela rede, um arquivo é transferido na forma de uma sequência de bytes. Além disso, ele é armazenado na memória na forma de uma sequência de bytes.
 
 O Stream tem três tarefas principais:
-1.	Escrita>> Escrever significa converter o objeto ou dados em bytes e armazená-lo na memória ou em um arquivo, ou pode ser enviado pela rede.
-2.	Leitura>> Ler significa ler os bytes e convertê-los em algo significativos, como Texto, ou desserializá-los em um objeto.
-3.	Procurar(Seeking)>> É o conceito de consulta para a posição atual de um cursor e movendo-o. A procura não é suportada por todos os fluxos, ou seja, você não pode avançar ou retroceder em um fluxo de bytes que está sendo enviado por uma rede.
+1.	**Escrita**: Escrever significa converter o objeto ou dados em bytes e armazená-lo na memória ou em um arquivo, ou pode ser enviado pela rede.
+2.	**Leitura**: Ler significa ler os bytes e convertê-los em algo significativos, como Texto, ou desserializá-los em um objeto.
+3.	**Procurar(Seeking)**: É o conceito de consulta para a posição atual de um cursor e movendo-o. A procura não é suportada por todos os fluxos, ou seja, você não pode avançar ou retroceder em um fluxo de bytes que está sendo enviado por uma rede.
 
 Stream: System.IO.Stream é uma classe abstrata que fornece métodos padrão para transferir bytes (leitura, gravação, etc.) para a fonte. É como uma classe de wrapper para transferir bytes. As classes que precisam ler/gravar bytes de uma fonte específica devem implementar a classe Stream.
 
 As seguintes classes herdam a classe Stream para fornecer funcionalidade aos bytes de leitura / gravação de uma fonte específica:
- 
 
-Classe	Descrição
-FileStream	Lê ou grava bytes de / para um arquivo físico, seja um arquivo .txt, .exe, .jpg ou qualquer outro arquivo.
-IsolatedStorageFileStream	Lê e grava arquivos em armazenamento isolado
-MemoryStream	Lê ou grava bytes armazenados na memória.
-BufferedStream	Lê ou grava bytes de outros Streams para melhorar o desempenho de certas operações de E / S.
-NetworkStream	Lê ou grava bytes de um soquete de rede.
-PipeStream	Lê ou grava bytes de diferentes processos.
-CryptoStream	É para vincular fluxos de dados a transformações criptográficas.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/streamstypes.png" alt="Image" width="100%" />
+</p>
 
-Codificação e decodificação
+
+|     Classe                       |     Descrição       |
+|----------------------------------|---------------------|
+|     FileStream                   |     Lê ou grava bytes de   / para um arquivo físico, seja um arquivo .txt, .exe, .jpg ou qualquer outro   arquivo.    |
+|     IsolatedStorageFileStream    |     Lê e grava arquivos   em armazenamento isolado        |
+|     MemoryStream                 |     Lê ou grava bytes   armazenados na memória.           |
+|     BufferedStream               |     Lê ou grava bytes de   outros Streams para melhorar o desempenho de certas operações de E / S.       |
+|     NetworkStream                |     Lê ou grava bytes de   um soquete de rede.           |
+|     PipeStream                   |     Lê ou grava bytes de   diferentes processos.         |
+|     CryptoStream                 |     É para vincular   fluxos de dados a transformações criptográficas.   |
+
+
+### Codificação e decodificação
 
 O processo de conversão de caracteres em bytes (e vice-versa) é chamado de codificação e decodificação. O Unicode Consortium é responsável por manter um padrão que descreva como isso deve acontecer. Um char, que é o tipo de caractere mais básico, é equivalente a um único caractere Unicode que ocupa 2 bytes de memória. Uma string é simplesmente uma sequência de caracteres. System.Text.Encoding é a classe que ajuda a converter entre bytes e seqüências de caracteres.
 
 O .NET Framework oferece vários padrões de codificação que você pode usar. UTF-8 é aquele que é suficiente para uso geral. Ele pode representar todos os caracteres Unicode e é usado como a codificação padrão em muitas classes do .NET Framework. Outras codificações são:
-Esquema Encoding	Classe	Utilização
-ASCII	ASCIIEnconding	GetEnconding(20127) ou propriedade ASCII
-Default	Enconding	GetEnconding(0) ou propriedade Default
-UTF-7	UTF7Enconding	GetEnconding(65000) ou propriedade UTF7
-UTF-8	UTF8Enconding	GetEnconding(65001) ou propriedade UTF8
-UTF-16	UnicodeEnconding	GetEnconding(1201) ou propriedade BigEndianUnicode
-UTF-16 (little-endian)	UnicodeEnconding	GetEnconding(1200) ou propriedade Unicode
-UTF32	UTF32Enconding	GetEnconding(12000) ou propriedade UTF32
-Windows OS	Enconding	GetEnconding(1252)
 
-	Para obter o código de página para passer como parâmetro no método GetEncoding utilize o seguinte xódigo que lista todos os códigos de página:
+|     Esquema Encoding       |     Classe              |     Utilização           |
+|----------------------------|-------------------------|-------------------|
+|     ASCII                  |     ASCIIEnconding      |     GetEnconding(20127) ou propriedade ASCII  |
+|     Default                |     Enconding           |     GetEnconding(0) ou  propriedade Default  |
+|     UTF-7                  |     UTF7Enconding       |     GetEnconding(65000) ou propriedade UTF7 |
+|     UTF-8                  |     UTF8Enconding       |     GetEnconding(65001) ou propriedade UTF8  |
+|     UTF-16                 |     UnicodeEnconding    |     GetEnconding(1201)   ou propriedade BigEndianUnicode    |
+|     UTF-16   (little-endian)  |     UnicodeEnconding    |     GetEnconding(1200) ou propriedade Unicode   |
+|     UTF32           |     UTF32Enconding      |     GetEnconding(12000) ou   propriedade UTF32      |
+|     Windows OS        |     Enconding           |     GetEnconding(1252)       |
 
+Para obter o código de página para passer como parâmetro no método GetEncoding utilize o seguinte código que lista todos os códigos de página:
+
+```csharp
 // Print the header.
 Console.Write("CodePage identifier and name     ");
 Console.Write("BrDisp   BrSave   ");
@@ -571,18 +658,23 @@ foreach (EncodingInfo ei in Encoding.GetEncodings())
     Console.Write("{0,-8} {1,-8} ", e.IsMailNewsDisplay, e.IsMailNewsSave);
     Console.WriteLine("{0,-8} {1,-8} ", e.IsSingleByte, e.IsReadOnly);
 }
+```
 
 Para tornar isso um pouco mais fácil ao trabalhar com texto, a classe File também suporta um método CreateText que cria um arquivo com uma codificação UTF-8 para você. CreateText retorna um StreamWriter, uma classe que herda de TextWriter e permite que você escreva caracteres diretamente em um Stream com uma codificação específica, como mostra a Listagem 4-15.
 
+```csharp
 string path = @"c:\temp\test.dat";
 using (StreamWriter streamWriter = File.CreateText(path))
 {
     string myValue = "MyValue";
     streamWriter.Write(myValue);
 }
+```
+
 
 Obviamente, você também desejará ler dados de um arquivo. Você pode fazer isso usando diretamente um objeto FileStream, lendo os bytes e convertendo-os novamente em uma sequência com a codificação correta. A Listagem 4-16 mostra como ler os bytes de um arquivo e convertê-los em uma string com codificação UTF-8.
 
+```csharp
 using (FileStream fileStream = File.OpenRead(path))
 {
     byte[] data = new byte[fileStream.Length];
@@ -597,58 +689,53 @@ using (FileStream fileStream = File.OpenRead(path))
         Console.WriteLine(streamWriter.ReadLine()); // Displays: MyValue
     }
 }
+```
+
 
 Se você souber que está analisando um arquivo de texto, também poderá usar um StreamReader (como o oposto do StreamWriter) para ler um arquivo de texto. 
 
-FileStream
+### FileStream
 
 FileStream provem da classe abstrata Stream, usada principalmente para escrever e ler bytes no arquivo. O próximo exemplo mostra como você pode usar o FileStream quando pode gravar conteúdo em um arquivo ao interagir com a classe File.
 
+```csharp
 FileStream fileStream = File.Create("File.txt");
 string content = "This is file content";
 byte[] contentInBytes = Encoding.UTF8.GetBytes(content);
 fileStream.Write(contentInBytes, 0, contentInBytes.Length);
 fileStream.Close();
+```
+
 
 Basicamente, quando você cria o arquivo usando as classes File ou FileInfo, ele retorna um objeto do tipo FileStream ou StreamWriter ou outro Stream(sequência de bytes), pois o arquivo é armazenado ou transferido na forma de bytes. Após obter o fluxo (stream) de um arquivo, você pode executar as respectivas operações em um arquivo, dependendo do tipo de fluxo. Como neste caso, File.Create() retorna um objeto FileStream para que você possa executar ainda mais as operações do FileStream no arquivo criado.
 
 Como mencionado, o Stream funciona em bytes; portanto, para escrever algo no arquivo, você precisa converter o conteúdo na forma de bytes e depois gravar no arquivo usando o método Write() do FileStream. O método Write() utiliza três parâmetros que contêm os bytes de conteúdo a serem gravados, a posição inicial e final dos bytes a serem gravados.
 
 Ao lidar com arquivos, é importante liberar o recurso, conforme mostrado no código para o métodoFile.Close() deve ser chamado para liberar os recursos do arquivo para que ele possa ser usado para operações posteriores a serem executadas em Files. Se você não liberar o recurso, receberá a exceção "Um arquivo está aberto/está sendo usado em outro processo" ou algo assim. Você também pode usar o bloco using para liberar o recurso. O FileStream tem alguns parâmetros para explicar, os seguintes detalhes ilustram parâmetros que o FileStream aceita:
-Parâmetro	Descrição
-File_Name	File_Name é o nome do arquivo no qual uma operação será executada.
-FileMode	FileMode determina se você cria, abre ou trunca um arquivo.
-1. Append: Isto cria o arquivo caso o arquivo não existir ou, se o arquivo existir, coloca o cursor no final do arquivo.
-2. Create: cria um novo arquivo e, se o arquivo já existir, o substituirá.
-3. CreateNew: Cria um novo arquivo e, se o arquivo já existir, lançará uma exceção.
-4. Open: abre o arquivo.
-5. OpenOrCreate: abre o arquivo existente; se não for encontrado, cria um novo.
-6. Truncate: abre o arquivo existente e trunca seu tamanho para zero bytes.
-FileAcces	FileAcces determina o que você pode fazer com o fluxo depois que ele é criado.
-1. Read: informa ao arquivo que tem acesso apenas a leitura.
-2. ReadWrite: informa ao arquivo que tem acesso de leitura e gravação do arquivo.
-3. Write: informa ao arquivo que tem acesso apenas a gravação.
-FileShare	FileShare determina o tipo de acesso que outros fluxos podem ter nesse arquivo ao mesmo tempo em que você o abre
-1. Delete: permite a exclusão subsequente de um arquivo.
-2. Iheritable: permite que o arquivo manipule o processo de herança do filho.
-3. None: pára de compartilhar o arquivo. O arquivo deve ser fechado antes do acesso por outro processo.
-4. Read: Permite arquivo para leitura.
-5. ReadWrlte: Permite arquivo para leitura e gravação.
-6. Write: Permite que o arquivo seja gravado.
+
+|     Parâmetro    |     Descrição     |
+|------------------|-------------------|
+|     File_Name    |     File_Name é o nome   do arquivo no qual uma operação será executada.              |
+|     FileMode     |     FileMode determina   se você cria, abre ou trunca um arquivo.  <br>   1. **Append**: Isto cria o arquivo caso o   arquivo não existir ou, se o arquivo existir, coloca o cursor no final do   arquivo.  <br>   2. **Create**: cria um novo arquivo e, se o   arquivo já existir, o substituirá.   <br>  3. **CreateNew**: Cria um novo arquivo e, se   o arquivo já existir, lançará uma exceção.   <br>  4. **Open**: abre o arquivo.  <br>   5. **OpenOrCreate**: abre o arquivo   existente; se não for encontrado, cria um novo.  <br>   6. **Truncate**: abre o arquivo existente e   trunca seu tamanho para zero bytes.    |
+|     FileAcces    |     FileAcces determina   o que você pode fazer com o fluxo depois que ele é criado.  <br>   1. **Read**: informa ao arquivo que tem   acesso apenas a leitura.   <br>  2. **ReadWrite**: informa ao arquivo que tem   acesso de leitura e gravação do arquivo.  <br>   3. **Write**: informa ao arquivo que tem   acesso apenas a gravação.                                                                                                                                                                                                                                                                  |
+|     FileShare    |     FileShare determina   o tipo de acesso que outros fluxos podem ter nesse arquivo ao mesmo tempo em   que você o abre  <br>   1. **Delete**: permite a exclusão   subsequente de um arquivo.  <br>   2. **Iheritable**: permite que o arquivo   manipule o processo de herança do filho.   <br>  3. **None**: pára de compartilhar o arquivo.   O arquivo deve ser fechado antes do acesso por outro processo.   <br>  4. **Read**: Permite arquivo para leitura.  <br>   5. **ReadWrlte**: Permite arquivo para   leitura e gravação.  <br>   6. **Write**: Permite que o arquivo seja   gravado.    |
 
 Preste atenção a essas opções, pois é provável que no exame surja uma pergunta sobre as enumerações FileMode, FileAccess ou FileShare.
 
-FileIOPermissionAccess (Veja mais sobre isso, na parte 4-Depuração e Seguranca, Criptografia)
+### FileIOPermissionAccess (Veja mais sobre isso, na parte 4-Depuração e Seguranca, Criptografia)
 
 Ao criar ou abrir um arquivo, o processo deve ter as permissões corretas para o arquivo ou diretório para executar a operação especificada. A enumeração System.Security.Permissions.FileIOPermissionAccess contém os tipos de permissões para um arquivo ou diretório.
-Valor	Descrição
-NoAccess	Sem acesso a um arquivo ou diretório
-Read	Acesso de leitura a um arquivo ou diretório
-Write	Acesso de gravação a um arquivo ou diretório
-Append	Acesso para anexar dados a um arquivo ou diretório. O acesso anexado também inclui a capacidade de criar um novo arquivo ou diretório
-PathDiscovery	Acesso às informações sobre o caminho
-AllAccess	Append, Read, Write, e PathDiscovery fornecem acesso ao arquivo ou diretório
 
+|     Valor            |     Descrição               |
+|----------------------|-----------------------------|
+|     NoAccess         |     Sem acesso a um   arquivo ou diretório                                           |
+|     Read             |     Acesso de leitura a   um arquivo ou diretório                                    |
+|     Write            |     Acesso de gravação a   um arquivo ou diretório                                   |
+|     Append           |     Acesso para anexar   dados a um arquivo ou diretório. O acesso anexado também inclui a capacidade   de criar um novo arquivo ou diretório    |
+|     PathDiscovery    |     Acesso às   informações sobre o caminho                                          |
+|     AllAccess        |     Append, Read, Write,   e PathDiscovery fornecem acesso ao arquivo ou diretório   |
+
+```csharp
 IPermission perm1 = new FileIOPermission(FileIOPermissionAccess.Read, @"C:\Windows");
 IPermission perm2 = new FileIOPermission(FileIOPermissionAccess.Write, @"C:\Windows");
 IPermission perm3 = new FileIOPermission(FileIOPermissionAccess.Write, @"C:\Windows");
@@ -662,28 +749,35 @@ Console.WriteLine(perm1.Intersect(perm4)); // IPermission Read="C:\Windows"
 Console.WriteLine(perm1.Union(all)); // IPermission Unrestricted="true"
 Console.WriteLine(perm1.Intersect(all)); // IPermission Read="C:\Windows"
 Console.WriteLine(perm1.Union(none)); // IPermission Read="C:\Windows"
+```
 
-IsolatedStorageFileStream
+### IsolatedStorageFileStream
 
 Para ler ou gravar de um arquivo em um armazenamento isolado, use um objeto IsolatedStorageFileStream com um leitor de fluxo (objeto StreamReader) ou o gravador do fluxo (objeto StreamWriter). V ocê pode usar IsolatedStorageFile e IsolatedStorageFileStream para gravar dados em um arquivo de armazenamento isolado.
-•	IsolatedStorageFile é essencialmente um ponteiro para o arquivo de armazenamento isolado (área) no disco.
+- IsolatedStorageFile é essencialmente um ponteiro para o arquivo de armazenamento isolado (área) no disco.
 
+```csharp
 var isolated = IsolatedStorageFile.GetUserStoreForApplication();
 using (var writer = new StreamWriter(isolated.CreateFile("TestStore.txt")))
 {
     writer.WriteLine("Text");
 }
 
-•	IsolatedStorageFileStream é uma representação na memória dos dados em um arquivo dentro da área de armazenamento isolada.
+```
 
+- IsolatedStorageFileStream é uma representação na memória dos dados em um arquivo dentro da área de armazenamento isolada.
+
+```csharp
 var isolated_stream = IsolatedStorageFile.GetUserStoreForApplication();
 using (StreamWriter writer = new StreamWriter(new IsolatedStorageFileStream("TestStore.txt", FileMode.Create, FileAccess.Write, isolated_stream)))
 {
     writer.WriteLine("Text");
 }
+```
 
 O exemplo de código a seguir obtém um repositório isolado e verifica se existe um arquivo chamado TestStore.txt no repositório. Se não existir, ele cria o arquivo e grava "Armazenamento Isolado do Hello" no arquivo. Se TestStore.txt já existir, o código de exemplo será lido a partir do arquivo.
 
+```csharp
 IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
 
 if (isoStore.FileExists("TestStore.txt"))
@@ -709,14 +803,19 @@ else
         }
     }
 }
+```
 
-MemoryStream
+### MemoryStream
 
 O MemoryStream provém da classe abstrata Stream; é usado principalmente para escrever e ler bytes da memória.Se seu trabalho estiver apenas na memória, é melhor usar o MemoryStream. Caso contrário, FileStream  com BufferedStream.
 
 Essencialmente, MemoryStream é um objeto que gerencia um buffer é uma matriz de bytes, enquanto os bytes gravados nesse fluxo serão automaticamente atribuídos à próxima posição a partir da posição atual do cursor na matriz. Quando o buffer estiver cheio, uma nova matriz com um tamanho maior a ser criado e copie os dados da matriz antiga.
- 
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/memorystream.png" alt="Image" width="100%" />
+</p>
+
+```csharp
 // Crie um objeto MemoryStream com capacidade de 100 bytes.
 MemoryStream memoryStream = new MemoryStream(10);
 
@@ -765,18 +864,22 @@ for (int i = count; i < memoryStream.Length; i++)
 }
 var resultado = Encoding.UTF8.GetString(readContent);
 Console.WriteLine("Conteudo lido por Read: " + resultado);
+```
 
-BufferedStream
+### BufferedStream
 
 Buffer é um bloco de bytes na memória usado para armazenar em cache os dados.O BufferedStream precisa que o fluxo (stream) seja armazenado em buffer e ajuda a melhorar a eficiência da leitura e gravação de dados.
 
 BufferedStream apenas dois construtores, que envolvem fluxos diferentes.
-Constructor	Description
-BufferedStream(Stream)	Initializes a new instance of the BufferedStream class with a default buffer size of 4096 bytes.
-BufferedStream(Stream, Int32)	Initializes a new instance of the BufferedStream class with the specified buffer size.
+
+|     Constructor                      |     Description                    |
+|--------------------------------------|------------------------------------|
+|     BufferedStream(Stream)           |     Initializes a new instance of the BufferedStream class with a default buffer size of 4096 bytes.    |
+|     BufferedStream(Stream, Int32)    |     Initializes a new instance of the BufferedStream class with the specified buffer size.    |
 
 Os dados gravados no buffer de fluxo serão aramazenados temporariamente na memória e, quando o buffer estiver cheio, os dados serão automaticamente liberados no arquivo, você poderá liberar proativamente os dados no arquivo usando o método Flush(). O uso do BufferedStream nesse caso reduz o número de vezes ao gravar na unidade e, portanto, aumenta a eficiência do programa.
 
+```csharp
 String fileName = @"File.txt";
 
 FileInfo file = new FileInfo(fileName);
@@ -821,9 +924,11 @@ using (FileStream fileStream = file.Create())
     }
 
 }
+```
 
 Os discos rígidos são otimizados para a leitura de blocos maiores de dados. Ler um arquivo byte a byte pode ser mais lento do que ler grandes pedaços de dados e processá-los byte a byte. Assim como no GZipStream, o BufferedStream usa outro Stream em seu construtor. O BufferedStream ajuda você a verificar se é possível ler ou gravar grandes pedaços de dados de uma só vez. O exemplo abaixo mostra como gravar alguns dados em um BufferedStream que agrupa um FileStream.
 
+```csharp
 string path = @"c:\temp\bufferedStream.txt";
 using (FileStream fileStream = File.Create(path))
 {
@@ -835,8 +940,9 @@ using (FileStream fileStream = File.Create(path))
         }
     }
 }
+```
 
-NetworkStream
+### NetworkStream
 
 NetworkStream não está no exame 70-483.
 A classe NetworkStream fornece métodos para enviar e receber dados sobre Stream soquetes no modo de bloqueio. Você pode usar a classe NetworkStream para transferência de dados síncrona e assíncrona. O .NET fornece um conjunto de classes em System.Net.sockets que torna a nossa vida mais fácil, pois elas fornecem as classes TcpListener, TcpClient, NetworkStream que abstraem muitas tarefas que antes exigiam a criação de código extra.
@@ -844,36 +950,48 @@ A classe NetworkStream fornece métodos para enviar e receber dados sobre Stream
 O que é um socket ?
 
 Um socket pode ser entendido como uma porta de um canal de comunicação que permite a um processo executando em um computador enviar/receber mensagens para/de outro processo que pode estar sendo executado no mesmo computador ou num computador remoto.
- 
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/computadorremoto.png" alt="Image" width="100%" />
+</p>
+
 Os sockets permitem então a comunicação processo a processo da seguinte forma:
-•	Comunicação local: processos locais usando sockets locais
-•	Comunicação remota: processos remotos usando sockets em rede (TCP/IP)
+- **Comunicação local**: processos locais usando sockets locais
+- **Comunicação remota**: processos remotos usando sockets em rede (TCP/IP)
 
 Abaixo temos uma figura com que representa a comunicação de sockets e a pilha TCP/IP
- 
-Tipos de serviço de transporte:
-•	Datagrama - transporte não orientado a conexão e sem controle de erros (protocolo UDP)
-•	DataStream - transporte orientado a conexão com controle de erros (protocolo TCP)
 
-NetworkStream.Write vs. Socket.Send
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/socketspilha.png" alt="Image" width="100%" />
+</p>
+
+
+Tipos de serviço de transporte:
+- **Datagrama** - transporte não orientado a conexão e sem controle de erros (protocolo UDP)
+- **DataStream** - transporte orientado a conexão com controle de erros (protocolo TCP)
+
+### NetworkStream.Write vs. Socket.Send
 
 A vantagem de um NetworkStream deriva principalmente do fato de ser um Stream. A desvantagem de um soquete é que o código comum que lê e grava de fontes abstratas de E/S, como um Stream, não pode manipular um soquete. Digamos, por exemplo, que você tinha uma biblioteca de comunicações e que suportava serializar mensagens de arquivos, pipes nomeados e TCP/IP. A escolha ideal para a classe de E/S seria Stream, pois os métodos de serialização poderiam aceitar um FileStream, um PipeStream, um NetworkStream e até um MemoryStream. Esse é o benefício da abstração, porque depois que criamos o Stream, um método pode interagir com ele sem saber que tipo de Stream é.
 
 A seguir a seqüência de ações realizadas no paradigma cliente/servidor (modo orientado a conexão)
-Servidor	Cliente
-Cria um socket e atribui-lhe um endereço. Este endereço deve ser conhecido pelo cliente.	Cria um socket e atribui-lhe um endereço
-Aguarda a conexão de um cliente	Solicita a conexão do seu socket ao socket do servidor (conhece o endereço )
-Aceita a conexão e cria um novo socket para comunicar com o cliente em causa	Aguarda que a conexão seja estabelecida
-Recebe a mensagem no novo socket	Envia uma mensagem ( request )
-Envia mensagem de resposta (reply)	Recebe a mensage de resposta (reply)
-fecha a conexão com o cliente	Fecha a conexão com o servidor
+
+|     Servidor                      |     Cliente                            |
+|-----------------------------------|----------------------------------------|
+|     Cria um socket e   atribui-lhe um endereço. Este endereço deve ser conhecido pelo cliente.    |     Cria um socket e atribui-lhe   um endereço       |
+|     Aguarda a conexão de   um cliente         |     Solicita a conexão   do seu socket ao socket do servidor (conhece o endereço )    |
+|     Aceita a conexão e cria um novo socket para comunicar com o cliente em causa    |     Aguarda que a   conexão seja estabelecida   |
+|     Recebe a mensagem no   novo socket      |     Envia uma mensagem (   request )                        |
+|     Envia mensagem de   resposta (reply)    |     Recebe a mensage de   resposta (reply)              |
+|     fecha a conexão com   o cliente         |     Fecha a conexão com   o servidor                    |
 
 Para colocar em prática a teoria vou criar dois projetos: TCPServidor e TCPCliente. Como não vou usar threads vamos precisar executar cada projeto separadamente. O projeto TCPServidor deverá ser executado primeiro e a seguir o projeto TCPCliente.
 
 Para criar um NetworkStream, você deve fornecer um Socketconectado. Você também pode especificar o que FileAccess permissão que o NetworkStream tem sobre o Socketfornecido. Por padrão, fechar o NetworkStream não fecha o Socketfornecido. Se você quiser que o NetworkStream tenha permissão para fechar o Socketfornecido, deverá especificar true para o valor do parâmetro ownsSocket.
 
-	Código do servidor:
+Código do servidor:
 
+```csharp
 IPAddress[] ips = Dns.GetHostAddresses("localhost");
 var adress = ips.Length == 0 ? System.Net.IPAddress.Any : ips[1];
 const int numeroPorta = 8000;
@@ -931,9 +1049,11 @@ catch (Exception e)
     Console.WriteLine(e.ToString());
     Console.ReadLine();
 }
+```
 
-	Código do cliente:
+Código do cliente:
 
+```csharp
 TcpClient tcpClient = new TcpClient();
 
 Console.WriteLine("Estabelecendo conexão.");
@@ -978,15 +1098,18 @@ else if (!networkStream_write.CanWrite)
 
     tcpClient.Close();
 }
+```
 
 Use os métodos Write e Read para E/S de bloqueio síncrono de thread único simples. Se você quiser processar a E/S usando threads separados, considere o uso dos métodos BeginWrite e EndWrite ou os métodos BeginRead e EndRead para comunicação. O NetworkStream não dá suporte ao acesso aleatório ao fluxo de dados de rede. O valor da propriedade CanSeek, que indica se o fluxo dá suporte à busca, é sempre false; ler a propriedade Position, ler a propriedade Length ou chamar o método Seek gerará um NotSupportedException.
 
 As operações de leitura e gravação podem ser executadas simultaneamente em uma instância da classe NetworkStream sem a necessidade de sincronização. Desde que haja um thread exclusivo para as operações de gravação e um thread exclusivo para as operações de leitura, não haverá nenhuma interferência cruzada entre threads de leitura e gravação e nenhuma sincronização será necessária.
 
+```csharp
 NetworkStream networkStream_read = tcpClient.GetStream();
 NetworkStream networkStream_write = tcpClient.GetStream();
+```
 
-PipeStream
+### PipeStream
 
 PipeStream não está no exame 70-483.
 A classe PipeStream fornece a classe base para operações de pipes nomeados e anônimos no .NET Framework. 
@@ -996,17 +1119,17 @@ Os Pipes, ou canais, são usados para comunicação entre processos e threads. N
 Na plataforma .NET os Pipes são implementados como streams e assim você tem uma opção para não somente enviar bytes em um pipe, mas você pode usar todos os recursos dos streams como os leitores(readers) e os escritores (writers).
 
 Pipes são representados pelo namespace System.IO.Pipes na plataforma .NET. Estes são os principais objetos que você precisará, dependendo do tipo de Pipe com o qual deseja trabalhar:
-
-•	Nomeados:  NamedPipeServerStream e NamedPipeClientStream;
-•	Anônimos:  AnonymousPipeServerStream e AnonymousPipeClientStream;
+- **Nomeados**:  NamedPipeServerStream e NamedPipeClientStream;
+- **Anônimos**:  AnonymousPipeServerStream e AnonymousPipeClientStream;
 
 Os pipes anônimos vêm com algumas limitações em comparação com os pipes nomeados:
-•	Eles são unidirecionais, ou seja, o servidor e o cliente não podem trocar mensagens. A comunicação em que o servidor e o cliente têm permissão para enviar mensagens é chamada de duplex;
-•	Só permitem a comunicação com um único cliente. Pipes nomeados fornecem um cenário de vários clientes;
-•	Não podem funcionar pela rede, são limitados à mesma máquina. Pipes nomeados não têm tal limitação;
+- **Eles são unidirecionais, ou seja, o servidor e o cliente não podem trocar mensagens**. A comunicação em que o servidor e o cliente têm permissão para enviar mensagens é chamada de duplex;
+- **Só permitem a comunicação com um único cliente.** Pipes nomeados fornecem um cenário de vários clientes;
+- **Não podem funcionar pela rede, são limitados à mesma máquina**. Pipes nomeados não têm tal limitação;
 
 Abaixo implementação do servidor Pipe, nomeado e anônimo:
 
+```csharp
 class Program
 {
     //Variaveis globais para Conexão Anonima
@@ -1106,9 +1229,11 @@ class Program
         }
     }
 }
+```
 
 Abaixo implementação do cliente(writer) Pipe nomeado:
 
+```csharp
 private static void PipesWriter(string nomeServidor, string nomePipe)
 {
     Console.WriteLine($"### Servidor - {nomePipe} ####");
@@ -1147,18 +1272,29 @@ private static void PipesWriter(string nomeServidor, string nomePipe)
 string nomePipe = args.Length >= 1 ? args[0] : "PipeReaderDemo";
 string nomeServidor = args.Length >= 2 ? args[1] : "localhost";
 PipesWriter(nomeServidor, nomePipe);
+```
 
-CryptoStream
+### CryptoStream
 
 CryptoStream não está no exame 70-483. 
 CryptoStream é uma classe usada para criptografia de fluxo de dados.Quando você escreve dados de bytes no CryptoStream, os bytes são criptografados em outros bytes antes de serem liberados no fluxo que está gravado no arquivo. A imagem abaixo ilustra o CryptoStream encapsular outro fluxo (como gravar arquivo de fluxo).Observe que você pode escolher um algoritmo de criptografia ao criar o objeto CryptoStream.
- 
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/objetocryptostream.png" alt="Image" width="100%" />
+</p>
+
+
+
 Em uma situação inversa, o CryptoStream quebra um arquivo de fluxo de leitura (arquivo cujo conteúdo foi criptografado acima), o byte no FileStream foi criptografado e será descriptografado pelo CryptoStream. Outra coisa importante a ser lembrada é que nem todos os algoritmos de criptografia têm soluções de criptografia e descriptografia bidirecional.
 
- 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/descriptografia.png" alt="Image" width="100%" />
+</p>
+
 A criptografia dos dados que passam por streams para privacidade e integridade também é importante.
 O C # fornece uma classe, CryptoStream, para a criptografia de dados que trafega por streams. A implementação é similar a da criptografia simétrica, porém, como se trata de streams, se não for usar using é necessário finalizar o objeto para não carregar a memória.
 
+```csharp
 class Criptografia_Stream
 {
     public byte[] EncryptStream(SymmetricAlgorithm symmetricAlgo)
@@ -1224,11 +1360,13 @@ using (SymmetricAlgorithm symmetricAlgo = SymmetricAlgorithm.Create())
     var cipherDataInBytes = stream_cripto.EncryptStream(symmetricAlgo);
     stream_cripto.DecryptStream(symmetricAlgo, cipherDataInBytes);
 }
+```
 
-GZipStream  - Compactar dados
+### GZipStream  - Compactar dados
 
 Devido à maneira como os Streams são projetados, você pode acoplar vários objetos de Stream para executar uma operação mais complexa. Este princípio é chamado de padrão decorador. Por exemplo, quando você deseja compactar alguns dados, pode usar um GZipStream., Que utiliza outro objeto Stream em seu construtor. O segundo fluxo é usado como entrada ou saída do algoritmo de compactação. Ao atribuir a ele um objeto FileStream, você pode compactar facilmente alguns dados (como outro arquivo) e armazená-los em disco. Você também pode usar um MemoryStream como entrada ou saída de um GZipStream. Você pode encontrar o GZipStream no espaço para nome System.IO.Compression. A Listagem 4-18 cria alguns dados, grava-os em um arquivo e compacta o arquivo. Como você pode ver, o arquivo compactado é muito menor que o arquivo original.
 
+```csharp
 string folder = @"c:\temp";
 string uncompressedFilePath = Path.Combine(folder, "uncompressed.dat");
 string compressedFilePath = Path.Combine(folder, "compressed.gz");
@@ -1249,13 +1387,15 @@ FileInfo uncompressedFile = new FileInfo(uncompressedFilePath);
 FileInfo compressedFile = new FileInfo(compressedFilePath);
 Console.WriteLine(uncompressedFile.Length); // Displays 1048576
 Console.WriteLine(compressedFile.Length); // Displays 1052
+```
 
-Como mostra a Lista 4-18, você pode passar outro Stream para o construtor de um GZipStream. Ao gravar dados no GZipStream, ele os comprime e os encaminha imediatamente para o FileStream.
+Você pode passar outro Stream para o construtor de um GZipStream. Ao gravar dados no GZipStream, ele os comprime e os encaminha imediatamente para o FileStream.
 
-WebRequest e WebResponse
+### WebRequest e WebResponse
 
 WebRequest e WebResponse formam um par de classes que você pode usar em conjunto para enviar uma solicitação de informações e, em seguida, receber a resposta com os dados solicitados. Um WebRequest é criado usando um método estático Create na classe WebRequest. O método Create inspeciona o endereço que você passa para ele e, em seguida, seleciona a implementação correta do protocolo. Se você passasse o endereço http://www.microsoft.com para ele, veria que você está trabalhando com o protocolo HTTP e retornaria um HttpWebRequest. Depois de criar o WebRequest correto, você pode definir outras propriedades, como instruções de autenticação ou cache. Ao terminar de compor sua solicitação, chame o método GetResponse para executar a solicitação e recuperar a resposta.
 
+```csharp
 WebRequest request = WebRequest.Create(@"http://www.microsoft.com");
 using (WebResponse resp = request.GetResponse())
 {
@@ -1266,26 +1406,28 @@ using (WebResponse resp = request.GetResponse())
     }
 }
 
+```
 
-
-
-FILE READER AND WRITER
+### FILE READER AND WRITER
 
 Para converter bytes em formato legível ou gravar ou ler valores como bytes ou como sequência, o .NET oferece o seguinteclasses nesse caso. Reader e Writer são classes no namespace System.IO que lêem ou gravam caracteres codificados de e para fluxos. A tabela abaixo lista os tipos comuns de leitores e gravadores no namespace System.IO.
-Classe	Descrição
-BinaryReader, BinaryWriter	Usado para ler e escrever valores binários
-StreamReader, StreamWriter	Usado para ler e escrever caracteres usando um valor codificado para converter os caracteres de e para bytes
-StringReader, StringWriter	Usado para ler e escrever caracteres de e para strings
-TextReader, TextWriter	Classes abstratas para outros leitores e escritores que lêem e escrevem caracteres ou seqüências
 
-BinaryReader and BinaryWriter
+|     Classe                        |     Descrição                      |
+|-----------------------------------|------------------------------------|
+|     BinaryReader, BinaryWriter    |     Usado para ler e   escrever valores binários             |
+|     StreamReader, StreamWriter    |     Usado para ler e   escrever caracteres usando um valor codificado para converter os caracteres   de e para bytes    |
+|     StringReader, StringWriter    |     Usado para ler e   escrever caracteres de e para strings       |
+|     TextReader, TextWriter        |     Classes abstratas   para outros leitores e escritores que lêem e escrevem caracteres ou   seqüências     |
+
+### BinaryReader and BinaryWriter
 
 Essas classes são usadas para ler e escrever valores como Valores Binários. 
-•	BinaryReader é uma classe auxiliar para ler o tipo de dados primitivo a partir de bytes. 
-•	BinaryWriter grava tipos primitivos em binário.
+- BinaryReader é uma classe auxiliar para ler o tipo de dados primitivo a partir de bytes. 
+- BinaryWriter grava tipos primitivos em binário.
 
 O BinaryReader possui métodos para ler o valor de um tipo de dados específico. Por exemplo, se houver um valor de sequência em forma de binário, use o método ReadString () e assim por diante, mas se não houver valor escrito como binário e você desejar ler, a exceção será lançada. Além disso, é importante ler ordinalmente à medida que os valores são gravados.
 
+```csharp
 //Write Data Types values as Binary Values in Sample.dat file
 FileStream file = File.Create("Sample.dat");
 BinaryWriter binaryWriter = new BinaryWriter(file);
@@ -1301,21 +1443,24 @@ Console.WriteLine(binaryReader.ReadChar());
 Console.WriteLine(binaryReader.ReadBoolean());
 
 Console.ReadKey();
+```
 
-StreamReader and StreamWriter
+### StreamReader and StreamWriter
 
 O StreamReader e o StringReader herdam da classe abstrata TextReader, é uma classe auxiliar para ler caracteres de um fluxo convertendo bytes em caracteres usando um valor codificado. Pode ser usado para ler strings (caracteres) de diferentes fluxos, como FileStream, MemoryStream, etc. A classe StreamReader é usada para ler a entrada de caracteres em uma codificação específica. A codificação padrão é UTF-8. Você pode usar um StreamReader para ler um arquivo de texto padrão. A tabela abaixo  lista alguns dos métodos para a classe StreamReader.
-Método	Descrição
-Close	Fecha o leitor de fluxo e o fluxo subjacente
-Peek	Retorna o próximo caractere no fluxo, mas não move a posição do caractere
-Read()	Retorna o próximo caractere no fluxo e move a posição do caractere em um
-Read(Char[], Int32, Int32)	Lê o número especificado de caracteres na matriz de bytes
-ReadBlock(Char[], Int32, Int32)	
-ReadLine	Lê uma linha de caracteres e retorna uma string
-ReadToEnd	Lê todos os caracteres da posição atual até o final do arquivo e retorna uma string
+
+|     Método                             |     Descrição                                                                                |
+|----------------------------------------|----------------------------------------------------------------------------------------------|
+|     Close                              |     Fecha o leitor de fluxo e o fluxo subjacente                                             |
+|     Peek                               |     Retorna o próximo caractere no fluxo, mas não move a posição do   caractere              |
+|     Read()                             |     Retorna o próximo caractere no fluxo e move a posição do caractere em   um               |
+|     Read(Char[], Int32, Int32) <br>  ReadBlock(Char[], Int32, Int32)  |     Lê o número especificado de caracteres na matriz de bytes |
+|     ReadLine                           |     Lê uma linha de caracteres e retorna uma string                                          |
+|     ReadToEnd                          |     Lê todos os caracteres da posição atual até o final do arquivo e   retorna uma string    |
 
 O StreamReader fornece métodos para leitura de caractere por caractere, linha por linha ou um arquivo inteiro em uma chamada. Os métodos Read e ReadBlock retornam caracteres e matrizes de caracteres; os métodos ReadLine e ReadToEnd retornam seqüências de caracteres. O código a seguir abre um arquivo e primeiro lê o conteúdo caractere por caractere, depois linha por linha e, em seguida, lê todo o conteúdo.
 
+```csharp
 string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
 
 using (StreamReader streamReader = new StreamReader(projectDirectory + "\\Numbers.txt"))
@@ -1337,11 +1482,19 @@ using (StreamReader streamReader = new StreamReader(projectDirectory + "\\Number
     Console.WriteLine("Entire file");
     Console.WriteLine(streamReader.ReadToEnd());
 }
+```
 
 O StreamWriter e o StringWriter herdam da classe TextWriter, é uma classe auxiliar para escrever uma string em um Stream convertendo caracteres em bytes. Ele pode ser usado para gravar strings em diferentes Streams, como FileStream, MemoryStream, etc.
- 
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/diferentesstreams.png" alt="Image" width="100%" />
+</p>
+
+
+
 A imagem acima mostra que o FileStream lê bytes de um arquivo físico e, em seguida, o StreamReader lê as strings convertendo esses bytes em strings. Da mesma forma, o StreamWriter pega uma string e a converte em bytes e grava no FileStream e, em seguida, o FileStream grava os bytes em um arquivo físico. Portanto, o FileStream lida com bytes, como StreamReader e StreamWriter lida com seqüências de caracteres.
 
+```csharp
 using (StreamWriter streamWriter = new StreamWriter(projectDirectory + "\\Numbers.txt"))
 {
     streamWriter.Write('A');
@@ -1351,11 +1504,14 @@ using (StreamReader streamReader = new StreamReader(projectDirectory + "\\Number
 {
     Console.WriteLine(streamReader.ReadLine());
 }
+```
 
-StringReader e StringWriter
+
+### StringReader e StringWriter
 
 Essas classes são usadas para ler e escrever caracteres de e para a string. Lembre-se que estas duas classes aceitam em seus construtures a classe StringBuilder como parâmetro, o que, geralmente é feito para que se conecte a entrada e leitura da string em partes diferentes do código.
 
+```csharp
 // Grava string ou caracteres
 using (StringWriter stringWriter = new StringWriter())
 {
@@ -1368,11 +1524,14 @@ using (StringReader stringReader = new StringReader("Exemplo de leitor de string
 {
     Console.WriteLine(stringReader.ReadLine());
 }
+```
 
-Comunicação através da rede
+
+### Comunicação através da rede
 
 O namespace System.Net fornece suporte para seus aplicativos se comunicarem em uma rede. Geralmente, os membros desse namespace que você usa são as classes WebRequest e WebResponse. Ambas classes são abstratas e usadas para se comunicar pela rede. O namespace System.Net também fornece classes implementadas específicas que dependem de qual protocolo será usado para comunicação. Por exemplo, a classe HttpWebRequest e a classe HttpWebResponse são usadas quando você está usando o protocolo Http. Em geral, usamos a classe WebRequest para enviar a solicitação de informações e a classe WebResponse para receber a resposta das informações solicitadas.
 
+```csharp
 WebRequest request = WebRequest.Create("http://www.apress.com");
 
 using (WebResponse response = request.GetResponse())
@@ -1382,11 +1541,13 @@ string result = reader.ReadToEnd();
     Console.WriteLine(result);
 }
 
+```
+
 O WebRequest é criado usando o método Create() (método estático da classe WebRequest), que pega o endereço da solicitação em uma string ou no formato Uri. O WebResponse está vinculado ao WebRequest, então ele obtem a resposta das informações ou dados solicitados usando seu método GetResponse().
 
 O método Create() do WebRequest inspeciona o endereço e escolhe a implementação correta do protocolo. No código, passamos o http://www.apress.com, para que ele escolhesse o protocolo Http e retornasse o HttpWebRequest. Você também pode usar o método ou as propriedades do WebRequest para executar outras operações nele. Após obter a resposta, o StreamReader é usado para obter a resposta no fluxo para que possa ser lida.
 
-ARQUIVO ASSÍNCRONO: ASYNC E AWAIT IN FILE I/O
+### ARQUIVO ASSÍNCRONO: ASYNC E AWAIT IN FILE I/O
 
 A leitura e gravação do arquivo pode ser uma tarefa demorada e é necessário aguardar muito tempo para concluir a operação. No código síncrono é executado linha por linha e frequentemente aguarda até que a tarefa termine. Essa espera pode ser longa o suficiente para incomodar o usuário e causar um grande impacto na experiência do usuário. Por exemplo, em aplicativos de desktop, você tem um thread que é o thread principal e que é responsável por todas as tarefas, ou seja, atualizar a interface do usuário e processar outras tarefas também. Se você tem uma tarefa longa a ser processada (ou seja, aguardar a resposta do fluxo da rede ou ler um arquivo da Internet), o thread principal ficará ocupado no processamento dessa tarefa e, enquanto isso, a interface do usuário do aplicativo ficará bloqueada e não sendo possível responder, o que será uma experiência ruim para o usuário. 
 
@@ -1399,6 +1560,8 @@ Em tais cenários, as classes Stream, Reader e Writer oferecem a capacidade de l
 Um método assíncrono contém async em seu nome, como ReadAsync, WriteAsync, ReadLineAsync e ReadToEndAsync, etc. Esses métodos assíncronos são implementados em classes de fluxo, como Stream, FileStream, MemoryStream e em classes usadas para ler ou gravar em fluxos como TextReader e TextWriter. 
 
 Por exemplo, suponha que você tenha um aplicativo de formulários do Windows que tenha um botão que execute uma tarefa de longa execução. Você pode modificar a assinatura do evento de clique no botão com o modificador assíncrono e, em seguida, chamar o método de longa duração usando a palavra-chave wait. Isso permite que o processo de longa execução seja executado, mas também permite que o usuário navegue para diferentes partes do seu aplicativo, para que o sistema não pareça estar bloqueado.
+
+```csharp
 
 private async void button1_Click(object sender, EventArgs e)
 {
@@ -1418,9 +1581,12 @@ private async void button1_Click(object sender, EventArgs e)
 
     Process.Start(outputFileName);                        
 }
+```
+
 
 No exemplo, a legenda do formulário é alterada para "Searching" quando o botão é clicado. Quando o método MyLongRunningProcess é chamado, o método é executado, mas o processamento é retornado ao thread principal até que o método SearchDirectory termine a execução. Depois disso, a legenda do formulário é alterada para "Concluído". Você pode usar os métodos assíncronos para o arquivo de E/S de maneira semelhante. O exemplo de código a seguir implementa o método SearchDirectory que pesquisa todos os arquivos em uma determinada pasta e procura uma sequência específica no arquivo. Se o arquivo contiver a string, seu nome será gravado em um arquivo de saída. Quando o processo é concluído, o arquivo de saída é mostrado no visualizador de texto padrão.
 
+```csharp
 private static async Task SearchDirectory(string searchPath, string searchString, string outputFileName)
 {
     StreamWriter streamWriter = File.CreateText(outputFileName);              
@@ -1458,12 +1624,17 @@ private static async Task FindTextInFilesAsync(string[] fileNames, string search
         }
     }
 }
- 
+```
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/shyoutarou/Exam-70-483_Acesso_dados/master/.github/assincronareal.png" alt="Image" width="100%" />
+</p>
 
 É importante saber que a classe File estática não suporta E/S assíncrona real. Se você chamar métodos assíncronos, isso será falsificado usando outro thread do pool de threads para trabalhar com o arquivo. Para E / S assíncrona real, você precisa usar o objeto FileStream e transmitir um valor verdadeiro para o parâmetro useAsync.
 
 O exemplo abaixo mostra um exemplo de como gravar assincronamente em um arquivo. O método Write é substituído por WriteAsync, o método é marcado com o modificador assíncrono para sinalizar ao compilador que você precisa de ajuda para transformar seu código e, finalmente, você usa a palavra-chave await na tarefa retornada.
 
+```csharp
 public async Task CreateAndWriteAsyncToFile()
 {
     using (FileStream stream = new FileStream("test.dat", FileMode.Create,
@@ -1474,9 +1645,12 @@ public async Task CreateAndWriteAsyncToFile()
         await stream.WriteAsync(data, 0, data.Length);
     }
 }
+```
 
-O objeto Task retornado representa algum trabalho em andamento, encapsulando o estado da operação assíncrona. Eventualmente, o objeto Task retorna o resultado da operação ou exceções que foram geradas de forma assíncrona. No caso acima, o método não possui nenhum valor retornado ao chamador. É por isso que o WriteAsync retorna um objeto Task comum. Quando um método tem um valor de retorno, ele retorna a Tarefa<T>, onde T é o tipo do valor retornado. No próximo exemplo, o método GetStringAsync é usado. Esse método retorna Task<string>, o que significa que, eventualmente, quando o processo for concluído, um valor string estará disponível (ou uma exceção).
 
+O objeto Task retornado representa algum trabalho em andamento, encapsulando o estado da operação assíncrona. Eventualmente, o objeto Task retorna o resultado da operação ou exceções que foram geradas de forma assíncrona. No caso acima, o método não possui nenhum valor retornado ao chamador. É por isso que o WriteAsync retorna um objeto Task comum. Quando um método tem um valor de retorno, ele retorna a ```Task<T>```, onde T é o tipo do valor retornado. No próximo exemplo, o método GetStringAsync é usado. Esse método retorna ```Task<string>```, o que significa que, eventualmente, quando o processo for concluído, um valor string estará disponível (ou uma exceção).
+
+```csharp
 public async Task ReadAsyncHttpRequest()
 {
     HttpClient client = new HttpClient();
@@ -1484,13 +1658,16 @@ public async Task ReadAsyncHttpRequest()
 
     Debug.WriteLine("Fim ReadAsyncHttpRequest... ");
 }
+```
+
 
 Sempre que o .NET Framework oferece um equivalente assíncrono de um método síncrono, é melhor usá-lo. Cria uma melhor experiência do usuário e um aplicativo mais escalável. No entanto, quando você está trabalhando em um aplicativo crítico para o desempenho, vale a pena saber o que o compilador faz por você. Se não tiver certeza, use um criador de perfil para realmente medir a diferença, para que você possa tomar uma decisão informada.
 
-Executando operações de E/S em paralelo
+### Executando operações de E/S em paralelo
 
 Operações E/S assíncrona reais garantem que seu thread possa executar outro trabalho até que o sistema operacional notifique seu aplicativo de que a E/S esteje pronta. Várias operações de E/S assíncronas ainda podem ser executadas uma após a outra. Quando você olha para o código abaixo, pode ver que várias esperas são usadas em um método. Com o código atual, cada solicitação da web inicia quando a anterior é concluída. O thread não será bloqueado durante a execução dessas solicitações, mas o tempo que o método leva é a soma das três solicitações da Web.
 
+```csharp
 public async Task ExecuteMultipleRequests()
 {
     HttpClient client = new HttpClient();
@@ -1500,9 +1677,12 @@ public async Task ExecuteMultipleRequests()
 
     Debug.WriteLine("Fim ExecuteMultipleRequests... ");
 }
+```
+
 
 Você também pode escrever um código que executará essas operações em paralelo. Se você executasse essas solicitações em paralelo, teria apenas que esperar o tempo que a solicitação mais longa demorar (as outras duas já estarão concluídas). Você pode fazer isso usando o método estático Task.WhenAll. Assim que você chama GetStringAsync, a operação assíncrona é iniciada. No entanto, você não espera imediatamente o resultado. Em vez disso, você deixa todos os três pedidos iniciarem e depois espera que eles terminem. Agora, todas as três operações são executadas em paralelo, o que pode economizar muito tempo.
 
+```csharp
 public async Task ExecuteMultipleRequestsInParallel()
 {
     HttpClient client = new HttpClient();
@@ -1513,8 +1693,10 @@ public async Task ExecuteMultipleRequestsInParallel()
 
     Debug.WriteLine("Fim ExecuteMultipleRequestsInParallel... ");
 }
+```
 
-Sumário
+
+**Sumário**
 1.	Stream é uma classe abstratabasepara todas as outras classes que tem três tarefas principais: leitura, escrita e busca bytes em fontes diferentes.
 2.	FileStream deriva da classe abstrata Stream; é usado para escrever e ler bytes no arquivo físico.
 3.	As classes Reader & Writer fornecem funcionalidade para ler bytes das classes Stream (FileStream, MemoryStream etc.) e converte bytes em codificação apropriada.
@@ -1526,12 +1708,12 @@ Sumário
 9.	StreamWriter deriva de TextWriter e é usado para escrever caracteres / caracteres no fluxo. StreamReader deriva de TextReader; é usado para ler bytes ou string.
 10.	Para comunicação em rede, usamos a classe WebRequest para enviar a solicitação de informações e a classe WebResponse para receber a resposta das informações solicitadas.
 
-Dados de consumo 
-•	Recuperar dados de um banco de dados; atualizar dados em um banco de dados; consumir dados JSON e XML; recuperar dados usando serviços Web
+## Dados de consumo 
+- **Recuperar dados de um banco de dados; atualizar dados em um banco de dados; consumir dados JSON e XML; recuperar dados usando serviços Web**
 
 O gerenciamento de dados é um dos aspectos mais importantes de um aplicativo. Imagine que você pode criar apenas aplicativos que armazenam seus dados na memória. Assim que o usuário sai, todos os dados são perdidos e os lançamentos subsequentes exigem a reinserção de todos os dados necessários. Obviamente, seria uma situação impossível de se trabalhar, e é por isso que o .NET Framework ajuda a armazenar seus dados de maneira persistente. Isso pode ser feito em um banco de dados usando diretamente o ADO.NET ou o Entity Framework. Você também pode armazenar e solicitar dados de um Web service externo e recuperar a resposta em JavaScript Object Notation (JSON) ou Extensible Markup Language (XML). O .NET ajuda a executar essas solicitações e analisar os dados retornados.
 
-INSTALAR SQL SERVER E O SQL SERVER MANAGEMENT STUDIO
+### INSTALAR SQL SERVER E O SQL SERVER MANAGEMENT STUDIO
 
 Antes de começarmos a explorar os tópicos dessa seção, como muitos exercícios serão realizados utilizando como base o provedor SQL, será necessário instalar duas ferramentas: SQL Server e o SQL Server Management Studio. Para instalar o SQL Server, você precisa baixá-lo no site Microsoft.com através do seguinte link:
  
@@ -1647,10 +1829,10 @@ State	Obtém uma sequência que representa o estado da conexão, como Aberta ou 
 
 A propriedade mais importante a ser observada é a propriedade ConnectionStringque contém todas as informações que o .NET Framework precisa saber: 
  
-•	Local dos dados
-•	Nome do banco de dados
-•	Provedor/tipo de banco de dados
-•	Autenticação no banco de dados
+- Local dos dados
+- Nome do banco de dados
+- Provedor/tipo de banco de dados
+- Autenticação no banco de dados
  
 
 Cada provedor tem pequenas variações nas configurações na cadeia de conexão, um ótimo recurso para consultar a sintaxe das cadeias de conexão para diferentes de bancos de dados é: http://www.ConnectionStrings.com
@@ -2024,10 +2206,10 @@ Essas consultas parametrizadas podem ser usadas ao executar consultas de seleç�
 Usando transações
 
 Ao trabalhar com um banco de dados, as coisas podem dar errado. Talvez você esteja executando várias consultas que devem ser agrupadas. Se o último falhar, os anteriores já serão executados e, de repente, seus dados poderão ficar corrompidos.Por isso, o .NET Framework ajuda você nas transações. Uma transação possui quatro propriedades principais que são chamadas de ACID:
-•	Atomicidade: Todas as operações são agrupadas. Se alguma falha, todas falham.
-•	Consistência: As transações levam o banco de dados de um estado válido para outro.
-•	Isolamento: As transações podem operar independentemente uma da outra. Várias transações simultâneas não se influenciam. Será como se eles fossem executados em série.
-•	Durabilidade: O resultado de uma transação confirmada é sempre armazenado permanentemente, mesmo se o banco de dados travar imediatamente depois.
+- Atomicidade: Todas as operações são agrupadas. Se alguma falha, todas falham.
+- Consistência: As transações levam o banco de dados de um estado válido para outro.
+- Isolamento: As transações podem operar independentemente uma da outra. Várias transações simultâneas não se influenciam. Será como se eles fossem executados em série.
+- Durabilidade: O resultado de uma transação confirmada é sempre armazenado permanentemente, mesmo se o banco de dados travar imediatamente depois.
 
 Ao trabalhar com transações, é mais fácil usar a classe TransactionScope. O escopo da transação oferece uma maneira fácil de trabalhar com transações sem exigir que você interaja com a própria transação.
 
@@ -2263,17 +2445,17 @@ O uso de um ORM é um compromisso entre desempenho e velocidade de desenvolvimen
 O LINQ é usado em vez do SQL e você pode usar um dos tipos de LINQ com sua fonte de dados fornecida pelo ADO.NET (banco de dados). Quando você executa consultas LInQ na fonte de dados ADO.Net, o tempo de execução da estrutura da entidade gera uma instrução SQL adequada em seu nome. Mas isso diminui o desempenho em comparação com a camada conectada e a desconectada. 
 
 O Entity Framework (EF) normalmente tem quatro abordagens para usar, a primeira é mais utilizada que é quando há um banco de dados existente, as outras são variações de abordagens para quando não houver um banco de dados definido e deseja iniciar o projeto e depois criar a base:
-•	Database First (EF Designer from database):Você deseja mapear um banco de dados existente para sua estrutura de objeto, com interface visual de mapeamento edmx.
-•	Model First (Empty EF Designer model): permite modelar nossa base de dados de forma visual através dos recursos do próprio Visual Studio, através da criação de um arquivo .edmx. A vantagens é de não haver necessidade de conhecimentos prévios do banco de dados ou do Entity Framework. Por outro lado, causa problemas em relação a manutenções e alterações nas regras de negócio da aplicação.
-•	Empty Code First model:O Entity Framework introduziu a abordagem Code-First com o Entity Framework 4.1. O Code-First é principalmente útil no Design Orientado a Domínios (Domain Driven Design). Na abordagem Code-First, você se concentra no domínio do seu aplicativo e começa a criar classes para a entidade do domínio, em vez de criar o banco de dados primeiro e depois criar as classes que correspondem ao design do banco de dados. A figura a seguir ilustra a abordagem do primeiro código.
+- Database First (EF Designer from database):Você deseja mapear um banco de dados existente para sua estrutura de objeto, com interface visual de mapeamento edmx.
+- Model First (Empty EF Designer model): permite modelar nossa base de dados de forma visual através dos recursos do próprio Visual Studio, através da criação de um arquivo .edmx. A vantagens é de não haver necessidade de conhecimentos prévios do banco de dados ou do Entity Framework. Por outro lado, causa problemas em relação a manutenções e alterações nas regras de negócio da aplicação.
+- Empty Code First model:O Entity Framework introduziu a abordagem Code-First com o Entity Framework 4.1. O Code-First é principalmente útil no Design Orientado a Domínios (Domain Driven Design). Na abordagem Code-First, você se concentra no domínio do seu aplicativo e começa a criar classes para a entidade do domínio, em vez de criar o banco de dados primeiro e depois criar as classes que correspondem ao design do banco de dados. A figura a seguir ilustra a abordagem do primeiro código.
  
 
 Como você pode ver na figura acima, a EF API criará o banco de dados com base nas suas classes e configuração de domínio. Isso significa que você precisa começar a codificar primeiro em C# ou VB.NET e, em seguida, a EF criará o banco de dados a partir do seu código.
-•	Code First(Code first from database):Mesmo você tendo o banco pronto, pode adotar a abordagem Code First que vai escrever as classes para mapear o banco existente e a partir daí começa a trabalhar a partir das classes, sem interface visual de mapeamento edmx.
+- Code First(Code first from database):Mesmo você tendo o banco pronto, pode adotar a abordagem Code First que vai escrever as classes para mapear o banco existente e a partir daí começa a trabalhar a partir das classes, sem interface visual de mapeamento edmx.
 
 Essas abordagens podem ser usadas usando o Assistente de modelo de dados de entidade, mas a abordagem “Code first from database” também pode ser usada sem o Assistente de modelo de dados da entidade. Toda abordagem tem sua própria adequação. Temos duas principais frentes no que diz respeito à ordem e gestão dos processos durante o desenvolvimento de um software:
-•	Modelo waterfall ou em cascata: é a mais utilizada, onde o software passa por diversas etapas até sua entrega, e em teoria, o sistema possui todos os seus requisitos levantados no início e o projeto de software possui uma arquitetura, design, vários diagramas e estrutura da base de dados feita logo no início.
-•	Modelo ágil: onde o desenvolvimento de software é incremental, as necessidades são separadas em pequenas partes e o sistema não é imutável ocorrendo entregas periódicas com novas partes do sistema. Como deve imaginar, em um modelo ágil, como há releases incrementais, a base de dados e os dados necessários podem mudar muitas vezes antes de chegar a seu estado final. Nesses momentos a utilização do Entity Framework Migrations é fundamental, fornecendo uma forma prática para lidar com essas mudanças.
+- Modelo waterfall ou em cascata: é a mais utilizada, onde o software passa por diversas etapas até sua entrega, e em teoria, o sistema possui todos os seus requisitos levantados no início e o projeto de software possui uma arquitetura, design, vários diagramas e estrutura da base de dados feita logo no início.
+- Modelo ágil: onde o desenvolvimento de software é incremental, as necessidades são separadas em pequenas partes e o sistema não é imutável ocorrendo entregas periódicas com novas partes do sistema. Como deve imaginar, em um modelo ágil, como há releases incrementais, a base de dados e os dados necessários podem mudar muitas vezes antes de chegar a seu estado final. Nesses momentos a utilização do Entity Framework Migrations é fundamental, fornecendo uma forma prática para lidar com essas mudanças.
 
 Database First (EF Designer from database)
 
@@ -2387,10 +2569,10 @@ O Visual Studio adicionará um novo arquivo EDMX ao local escolhido e exibirá u
  
 
 Vamos começar a configurar o nosso modelo! Primeiro, vamos criar uma entidade para representar um aluno. Clique com o botão direito do mouse no designer e selecione Adicionar novo -> Entidade:
-•	Entity Name: exatamente o que parece. Estamos chamando o nosso de "Aluno". De um modo geral, essa será uma forma singular.
-•	Base Type: se a nova entidade herdar de outra entidade, você poderá usar este menu suspenso para selecionar a entidade de base.
-•	Entity Set: o nome da coleção desse tipo de entidade que o Contexto produzirá. Geralmente, essa será a forma plural do Nome da entidade.
-•	Key Property: os detalhes sobre uma coluna de chave que você deseja criar.
+- Entity Name: exatamente o que parece. Estamos chamando o nosso de "Aluno". De um modo geral, essa será uma forma singular.
+- Base Type: se a nova entidade herdar de outra entidade, você poderá usar este menu suspenso para selecionar a entidade de base.
+- Entity Set: o nome da coleção desse tipo de entidade que o Contexto produzirá. Geralmente, essa será a forma plural do Nome da entidade.
+- Key Property: os detalhes sobre uma coluna de chave que você deseja criar.
 
 Nesse caso, estamos criando uma entidade Estudante com ID da chave. A entidade resultante é assim:
 
@@ -2431,9 +2613,9 @@ A figura a seguir ilustra o fluxo de trabalho de desenvolvimento com o Code-Firs
 O fluxo de trabalho de desenvolvimento na abordagem de primeiro código seria: Criar ou modificar classes de domínio -> configurar essas classes de domínio usando a API do Fluent ou atributos de anotação de dados -> Criar ou atualizar o esquema do banco de dados usando migração automatizada ou migração baseada em código.
 
 O Entity Framework 4.3 incluiu um novo recurso Code First Migrations que permite evoluir de forma incremental o esquema do banco de dados conforme seu modelo muda com o tempo. Para a maioria dos desenvolvedores, essa é uma grande melhoria em relação às opções do inicializador de banco de dados das versões 4.1 e 4.2 que exigiam que você atualize manualmente o banco de dados ou descarte e recriá-lo quando o modelo foi alterado.
-•	Antes do Entity Framework 4.3, se você já possui dados (exceto dados de propagação) ou procedimentos armazenados, gatilhos etc. no seu banco de dados, essas estratégias eram usadas para descartar o banco de dados inteiro e recriá-lo, para que você perdesse os dados e outros bancos de dados objetos.
-•	Com a migração, ele atualizará automaticamente o esquema do banco de dados quando o modelo for alterado sem perder dados ou outros objetos de banco de dados existentes.
-•	Ele usa um novo inicializador de banco de dados chamado MigrateDatabaseToLatestVersion.
+- Antes do Entity Framework 4.3, se você já possui dados (exceto dados de propagação) ou procedimentos armazenados, gatilhos etc. no seu banco de dados, essas estratégias eram usadas para descartar o banco de dados inteiro e recriá-lo, para que você perdesse os dados e outros bancos de dados objetos.
+- Com a migração, ele atualizará automaticamente o esquema do banco de dados quando o modelo for alterado sem perder dados ou outros objetos de banco de dados existentes.
+- Ele usa um novo inicializador de banco de dados chamado MigrateDatabaseToLatestVersion.
 
 Existem dois tipos de migração:
 1.	Migração automatizada: modo totalmente automático, onde você não precisa se preocupar em atualizar o banco, pois ao executar o seu programa, isto será feito de maneira automatica.
@@ -2486,8 +2668,8 @@ publicvirtual DbSet<Aluno> Alunos { get; set; }
 }
 
 O DbContext é um invólucro para ObjectContext e além disso esta classe contém:
-•	Um conjunto de APIs que são mais fáceis de usar do que a exposta pelo ObjectContext;
-•	As APIs que permitem utilizar o recurso do Code-First e as convenções;
+- Um conjunto de APIs que são mais fáceis de usar do que a exposta pelo ObjectContext;
+- As APIs que permitem utilizar o recurso do Code-First e as convenções;
 
 Você pode definir no arquivo de configuração App.Config a string de conexão e indicar nome banco de dados, senão fizer isso, o padrão que o Entity Framework usa é o seguinte: A API DbContext por convenção cria o banco de dados para você em localhost\SQLEXPRESS (ou (localdb)\mssqllocaldb ou outras variações dependendo da instalação de seu serviço SQL) e o nome do banco de dados é derivado a partir do nome do projeto e do contexto, no nosso caso seria: EF_Auto_CodeFirst.MyContext. Porém, o nome pode ser customizado na classe contexto, como segue abaixo:
 
@@ -2615,10 +2797,10 @@ public Configuration()
 Migração Baseada em Código
 
 A migração baseada em código é útil quando você deseja ter mais controle sobre a migração. Essa abordagem permite que o Code First atualize o esquema do banco de dados em vez de eliminar e recriar o banco de dados. Aqui está a regra básica para migrar alterações no banco de dados –
-•	Enable Migrations:Habilita a migração no seu projeto, criando uma classe de Configuração. 
-•	Add-Migrations “nome_migrations” – cria um alteração no banco de dados, onde o “nome_migrations” é o nome que você irá dar para a atualização; Cria uma nova classe de migração conforme o nome especificado com os métodos Up() e Down().
-•	Update Database: aplica as alterações no banco de dados; Executa o último arquivo de migração criado pelo comando Add-Migration e aplica mudanças no esquema do banco de dados.
-•	Update-DataBase – script : gera um script com os comandos SQL para serem executados no banco de dados.
+- Enable Migrations:Habilita a migração no seu projeto, criando uma classe de Configuração. 
+- Add-Migrations “nome_migrations” – cria um alteração no banco de dados, onde o “nome_migrations” é o nome que você irá dar para a atualização; Cria uma nova classe de migração conforme o nome especificado com os métodos Up() e Down().
+- Update Database: aplica as alterações no banco de dados; Executa o último arquivo de migração criado pelo comando Add-Migration e aplica mudanças no esquema do banco de dados.
+- Update-DataBase – script : gera um script com os comandos SQL para serem executados no banco de dados.
 
 Neste exemplo, começaremos novamente com nossas 3 classes básicas, como Aluno, Curso e Inscrição.
 
@@ -2976,8 +3158,8 @@ O JSON é usado com mais frequência em cenários assíncronos de JavaScript e X
 USANDO WEB SERVICES
 
 Outra opção além de armazenar dados em um banco de dados relacional ou em um arquivo é usar um serviço externo para armazenar dados. Pode ser um serviço da web que você criou ou pode ser de terceiros. Com esses serviços, você pode trocar dados entre aplicativos de uma maneira pouco acoplada. Você só precisa saber o endereço do serviço e como fazer uma solicitação para esse serviço. A implementação por trás da chamada está completamente oculta de seus consumidores, e você geralmente não precisa se preocupar com isso. O .NET Framework possui um suporte sólido para a criação de serviços da web. Você pode criar serviços da Web altamente flexíveis usando tecnologia .NET:
-•	Serviço Web ASMX: Esse recurso está incluído no .NET Framework 3.5 e abaixo, é uma abordagem antiga para criar serviços da Web que usa a classe “Visually Designed Class for web service". Mas a implementação continua válida até para Visual Studio 2017, .NET Framework 4.6.1.
-•	WCF (Windows Communication Foundation): pode enviar dados como mensagens assíncronas de um terminal em serviço para outro. Um terminal em serviço pode fazer parte de um serviço continuamente disponível hospedado pelo IIS ou pode ser um serviço hospedado em um aplicativo.
+- Serviço Web ASMX: Esse recurso está incluído no .NET Framework 3.5 e abaixo, é uma abordagem antiga para criar serviços da Web que usa a classe “Visually Designed Class for web service". Mas a implementação continua válida até para Visual Studio 2017, .NET Framework 4.6.1.
+- WCF (Windows Communication Foundation): pode enviar dados como mensagens assíncronas de um terminal em serviço para outro. Um terminal em serviço pode fazer parte de um serviço continuamente disponível hospedado pelo IIS ou pode ser um serviço hospedado em um aplicativo.
 
 SERVIÇO WEB ASMX
 
@@ -3062,9 +3244,9 @@ http://localhost/WcfDataService1.svc/Categories? $ filter = CategoryName eq 'Bev
 Neste exemplo, Categorias especifica a entidade a ser retornada, e o parâmetro filter (eq) na string de consulta é usado para encontrar a categoria com o nome 'Beverages'. Os espaços são permitidos na string de consulta. Você pode optar por retornar os dados como XML, caso em que segue o formato OData ATOM (a representação XML dos dados retornados de uma consulta OData) ou a JavaScript Object Notation, JSON (um formato leve de intercâmbio de dados). Por padrão, os dados são retornados como XML. O XML a seguir mostra a resposta para a chamada anterior ao Serviço de Dados do WCF:
 
 O WCF é superior às tecnologias anteriores, pois a comunicação com um serviço WCF ocorre através de endpoints do serviço,não contendo nenhuma informação sobre como o serviço pode ser chamado - não especifica um endereço ou protocolo. Os endpoints fornecem aos clientes o acesso às funcionalidades oferecidas por um serviço WCF. O EndPoint do WCF é chamado também de modelo ABC:
-•	Address: define onde o serviço reside
-•	Binding: define como se comunicar com o serviço. 
-•	Contract: define o que o serviço vai fazer
+- Address: define onde o serviço reside
+- Binding: define como se comunicar com o serviço. 
+- Contract: define o que o serviço vai fazer
 
 Endpoint = Address + Binding + Contract
 
@@ -3095,10 +3277,10 @@ Aplicativo cliente que consome o serviço WCF
 A seguir iremos criar um aplicativo cliente que consome o serviço WCF. Isso é semelhante à seção que descreveu como criar um modelo do ADO.NET Entity Framework e mostrou como selecionar, adicionar, atualizar e excluir registros. Esta seção cria um aplicativo de console que faz referência a um serviço WCF na mesma solução e executa todas as operações CRUD nos dados.
 
 Criar um Serviço de Dados WCF envolve a criação de um aplicativo Web, a criação de um modelo ADO.NET Entity Framework para o banco de dados e, em seguida, a exposição do modelo, adicionando um arquivo WCF Data Service ao seu aplicativo Web. Para implementar um serviço WCF iniciamos pela definição do contrato para o serviço e então implementamos o contrato em um tipo de serviço. Um contrato para um serviço geralmente envolve a aplicação do atributo ServiceContract para uma interface e então a aplicação do atributo OperationContract para cada método exposto como parte do contrato do serviço.  A seguir veja as regras para a definição de um contrato:
-•	O contrato deve ser uma interface contendo as assinaturas dos métodos do serviço;
-•	A interface deverá ser decorada com o atributo: ServiceContract de outra forma será lançada a exceção InvalidOperationException;
-•	Todas as operações que serão disponibilizadas devem ser decoradas com o atributo OperationContract;
-•	É obrigatória a definição de pelo menos uma operação com o atributo OperationContract;
+- O contrato deve ser uma interface contendo as assinaturas dos métodos do serviço;
+- A interface deverá ser decorada com o atributo: ServiceContract de outra forma será lançada a exceção InvalidOperationException;
+- Todas as operações que serão disponibilizadas devem ser decoradas com o atributo OperationContract;
+- É obrigatória a definição de pelo menos uma operação com o atributo OperationContract;
 
 Passo 1:  Selecione Aplicativo da Web vazio do ASP.NET na lista de modelos C# instalados.
 
@@ -3108,8 +3290,8 @@ Passo 3: Clique com o botão direito do mouse no projeto no Gerenciador de Solu�
  
 
 Depois de criar o SchoolService, você pode ver dois arquivos criados,
-•	ISchoolService.cs: interface para declarar seus contratos de serviço e contratos de dados.
-•	SchoolService.scv.cs: é uma classe normal herdada pelo ISchoolService onde é possível definir todos os métodos e outros processos.
+- ISchoolService.cs: interface para declarar seus contratos de serviço e contratos de dados.
+- SchoolService.scv.cs: é uma classe normal herdada pelo ISchoolService onde é possível definir todos os métodos e outros processos.
 
 O SchoolService.svc contém instruções sobre como hospedar seu serviço no Internet Information Services (IIS), para que você possa colocar o arquivo.svc com o arquivo de código associado em um site hospedado pelo IIS para disponibilizá-lo aos usuários. O arquivo de código SchoolService.cs não contém nenhuma informação sobre como o serviço pode ser chamado - não especifica um endereço ou protocolo. 
 
@@ -3145,9 +3327,9 @@ Isso retorna o documento padrão de serviço, que contém uma lista de conjuntos
  
 
 Passo 7: Para chamar métodos WCF a partir de um navegador, você precisa fazer duas coisas:
-•	Use os atributos [WebGet] e [WebInvoke] em seus métodos. Caso não colocar é emitido a seguinte mensagem:
+- Use os atributos [WebGet] e [WebInvoke] em seus métodos. Caso não colocar é emitido a seguinte mensagem:
  
-•	Configure o Web.config para usar um webHttpBinding para o terminal do seu serviço e ative o comportamento do webHttp. 
+- Configure o Web.config para usar um webHttpBinding para o terminal do seu serviço e ative o comportamento do webHttp. 
 
 <?xmlversion="1.0"encoding="utf-8"?>
 <!--
@@ -3480,7 +3662,7 @@ using (HttpWebResponse resp = (HttpWebResponse)req.GetResponse())
 Esse código cria uma solicitação que seleciona o registro de categoria com a chave primária 1 e seleciona as propriedades CategoryId, CategoryName e Description. A linha req.Accept = "application / json; odata = verbose" informa ao WCF Data Service para retornar os dados como JSON. Quando você executa esse código, ele imprime o seguinte na janela Saída. Quebras de linha são adicionadas para facilitar a leitura.
  
 Usando LINQ 
-•	Consultar dados usando operadores, incluindo projetar, juntar, agrupar, obter, ignorar, agregar; criar consultas sintaxe LINQ Method e sintaxe LINQ Query; selecionar dados usando tipos anônimos {select new}; forçar a execução de uma consulta; ler, filtrar, criar e modificar as estruturas de dados de usando LINQ to XML.
+- Consultar dados usando operadores, incluindo projetar, juntar, agrupar, obter, ignorar, agregar; criar consultas sintaxe LINQ Method e sintaxe LINQ Query; selecionar dados usando tipos anônimos {select new}; forçar a execução de uma consulta; ler, filtrar, criar e modificar as estruturas de dados de usando LINQ to XML.
 
 No .NET 3.5, um novo recurso foi adicionado ao C #: LINQ (Language Integrated Query). O LINQ é uma maneira de consultar diferentes tipos de fontes de dados que oferecem suporte a IEnumerable <T> ou IQueryable <T>. Ele oferece uma maneira fácil e elegante de acessar ou manipular dados de um objeto de banco de dados, documento XML e objetos na memória.
 
@@ -3513,9 +3695,9 @@ Sintaxe do método
 Sintaxe LINQ Method
 
 O LINQ fornece a sintaxe do método para interagir com diferentes fontes de dados para consultá-las. É conhecido também como:
-•	Fluent Syntax, pois permite chamar uma série de métodos de extensão.
-•	Method Extension Syntax, pois usa, basicamente, métodos de extensão para acessar os dados.
-•	Lambda Syntax Query, pois método de extensão usa a sintaxe lambda como predicado.
+- Fluent Syntax, pois permite chamar uma série de métodos de extensão.
+- Method Extension Syntax, pois usa, basicamente, métodos de extensão para acessar os dados.
+- Lambda Syntax Query, pois método de extensão usa a sintaxe lambda como predicado.
  
 
 Onde resultado deve ser de um tipo de dados retornados. Você também pode usar o tipo var quando não tiver certeza sobre o tipo de dados retornado. Vamos dar um exemplo de uma coleção de frutas como:
@@ -4416,13 +4598,13 @@ Console.WriteLine(root3);
 Depende da dificuldade da sua modificação, se você usa a maneira processual ou funcional regular. Especialmente quando a estrutura do documento XML muda, a maneira funcional pode trazer muitos benefícios.
 
 Serializar e de-serializar dados 
-•	Serializar e de-serializar dados usando serialização binária, serialização personalizada, Serializador XML, Serializador JSON e Serializador de Contrato de Dados
+- Serializar e de-serializar dados usando serialização binária, serialização personalizada, Serializador XML, Serializador JSON e Serializador de Contrato de Dados
 
 Serialização e Desserialização
 
 Serialização é o processo de transformar um objeto em um formulário que pode ser persistido no armazenamento ou transferido de um domínio de aplicativo para outro. Serialização e desserialização de dados ou de um objeto são comumente usadas nos casos em que você frequentemente trocar dados com outros aplicativos, especioalmente, ao se comunicar com aplicativos remotos. Por exemplo, quando os dados serão enviados para um serviço web ou por um fluxo de rede, primeiro é necessário converter dados em um fluxo de bytes e, no lado do recebimento, você deve converta-o novamente de um fluxo de bytes para um objeto que é sua principal preocupação. Ou seja:
-•	Serialização: O processo de conversão de um objeto ou gráfico de objeto em um fluxo de bytes é chamado de serialização. É o processo de transformar um objeto em bytes ou texto para armazená-lo em qualquer tipo de armazenamento ou trocar o objeto pela rede.
-•	Desserialização: O processo de conversão de um fluxo inverso de bytes em um objeto ou gráfico de objeto é chamado desserialização
+- Serialização: O processo de conversão de um objeto ou gráfico de objeto em um fluxo de bytes é chamado de serialização. É o processo de transformar um objeto em bytes ou texto para armazená-lo em qualquer tipo de armazenamento ou trocar o objeto pela rede.
+- Desserialização: O processo de conversão de um fluxo inverso de bytes em um objeto ou gráfico de objeto é chamado desserialização
 
 O objeto serializado carrega os dados de um objeto na forma de um fluxo, juntamente com as informações do tipo de objeto, ou seja, sua versão, cultura e nome do conjunto.Os métodos não são serializados porque a serialização apenas serializa os dados armazenados por um objeto.
 
@@ -4741,10 +4923,10 @@ string serializedDataInStringFormat = dataContract.Serialize(professor);
 SERIALIZAÇÃO PERSONALIZADA (CUSTOM)
 
 A serialização personalizada permite que um objeto controle sua própria serialização e desserialização. Existem dois métodos para personalizar os processos de serialização. O primeiro é adicionar um atributo antes de um método personalizado que manipule os dados do objeto durante e após a conclusão da serialização e desserialização. Você pode usar quatro atributos para fazer isso:
-•	OnDeserializedAttribute, 
-•	OnDeserializingAttribute, 
-•	OnSerializedAttribute e 
-•	OnSerializingAttribute. 
+- OnDeserializedAttribute, 
+- OnDeserializingAttribute, 
+- OnSerializedAttribute e 
+- OnSerializingAttribute. 
 
 A adição desse atributo antes de uma declaração de método o reafirma durante ou após o processo de serialização ou desserialização. O código a seguir pode ser adicionado à classe Person para personalizar a lógica de serialização:
 
@@ -4862,7 +5044,7 @@ Sumário
 
 
 Armazenar dados e recuperar dados de coleções 
-•	Armazenar e recuperar dados usando dicionários, matrizes, listas, conjuntos e filas; escolher um tipo de coleção; inicializar uma coleção; adicionar e remover itens de uma coleção; usar coleções tipificadas vs. coleções não tipificadas; implementar coleções personalizadas; implementar interfaces de coleções
+- Armazenar e recuperar dados usando dicionários, matrizes, listas, conjuntos e filas; escolher um tipo de coleção; inicializar uma coleção; adicionar e remover itens de uma coleção; usar coleções tipificadas vs. coleções não tipificadas; implementar coleções personalizadas; implementar interfaces de coleções
 
 Entender como manipular uma série de dados é fundamental para todos os tipos de desenvolvedores. Por exemplo, controles drop-downrequerem um conjunto de dados, a leitura de registros de um banco de dados requer um conjunto de dados e a leitura de um arquivo exige o armazenamento de um conjunto de dados na memória. Existem muitos termos diferentes que as pessoas usam para descrever uma série de dados, como matrizes (arrays), conjuntos (sets), coleções, listas, dicionários, pilhas (stacks) e filas (queues). Todos eles são usados para armazenar uma série de dados na memória e cada um oferece funcionalidade para anexar, pesquisar e classificar os dados. Esta seção explica matrizes e coleções e as diferenças entre os dois. Matrizes são o tipo mais primitivo em C#, com funcionalidade limitada, enquanto coleções é um termo geral que abrange listas, dicionários, filas e outros objetos.
 
@@ -4875,8 +5057,8 @@ Uma fila e uma pilha são usadas quando você deseja recuperar itens em uma orde
 Existem duas maneiras de criar e gerenciar grupos de objetos relacionados em C #
 1.	Array: armazenam várias variáveis do mesmo tipo em uma estrutura de dados da matriz.
 2.	Collection: fornecem uma maneira flexível de trabalhar com grupos de objetos
-•	Ao contrário das matrizes, o grupo de objetos pode crescer e encolher dinamicamente
-•	Existem vários tipos diferentes de coleções
+- Ao contrário das matrizes, o grupo de objetos pode crescer e encolher dinamicamente
+- Existem vários tipos diferentes de coleções
 
 MATRIZES
 
@@ -5089,9 +5271,9 @@ Queue
 Fila é uma classe do namespace System.Collections. Ele armazena e recupera objetos na ordem FIFO (primeiro a entrar, primeiro a sair). Em outras palavras, ele gerencia uma coleção de objetos por ordem de chegada.Você acessa elementos na mesma ordem em que os adicionou. Ao obter um item, você também o remove da fila. É por isso que uma fila oferece armazenamento temporário.
 
 Você pode usar uma fila, por exemplo, quando precisar processar mensagens recebidas. Cada nova mensagem é adicionada ao final da fila; Quando você terminar de processar uma mensagem, receberá uma nova desde o início da fila.A classe Queue possui três métodos importantes:
-•	Enqueue adiciona um elemento ao final da fila, equivalente ao final da linha.
-•	Dequeue remove o elemento mais antigo da fila, equivalente à frente da linha.
-•	Peek retorna o elemento mais antigo, mas não o remove imediatamente da fila.
+- Enqueue adiciona um elemento ao final da fila, equivalente ao final da linha.
+- Dequeue remove o elemento mais antigo da fila, equivalente à frente da linha.
+- Peek retorna o elemento mais antigo, mas não o remove imediatamente da fila.
 
 Queue days = new Queue();
 //Add(Enque) objects in queus
@@ -5115,9 +5297,9 @@ Console.WriteLine();
 Stack
 
 Stack é uma classe do namespace System.Collections. Ele armazena e recupera objetos na ordem LIFO (Last In, First Out). Em outras palavras, os elementos pressionados no final aparecerão primeiro, por exemplo, uma pilha de pratos.Uma pilha possui os três métodos importantes a seguir:
-•	Push: Adicionar um novo item à pilha.
-•	Pop: Obtenha o item mais recente da pilha.
-•	Peek: Obtenha o item mais novo sem removê-lo.
+- Push: Adicionar um novo item à pilha.
+- Pop: Obtenha o item mais recente da pilha.
+- Peek: Obtenha o item mais novo sem removê-lo.
 
 Stack history = new Stack();
 //Insert browser history in stack
@@ -5646,10 +5828,10 @@ Abaixo uma figura que mostra como funcionam os membros do IEnumerator:
  
 
 Vejamos o funcionamento destes membros:
-•	Inicialmente, o enumerador é posicionado antes do primeiro elemento na coleção (index = -1). Nesta posição, se for chamada a propriedade Current ocorrerá uma exceção. O método Reset traz o enumerador de volta para essa posição. 
-•	A propriedade Current retorna o mesmo objeto até que os métodos MoveNext ou Reset sejam chamados. Para ler o primeiro valor de Current, você deve chamar o método MoveNext para avançar o enumerador do primeiro elemento da coleção.Para voltar para o primeiro valor Current, deve-se chamar Reset seguido de um MoveNext;
-•	O método MoveNext define a propriedade Current para o próximo elemento. Se MoveNext passar o final da coleção, o enumerador estará posicionado após o último elemento na coleção e MoveNext retornará false. Chamadas subseqüentes para MoveNext também retornam false, se houver uma chamada de Current gera uma exceção;
-•	Os enumeradores podem ser usados para ler dados em uma coleção, mas não podem modificar estes dados.Se forem feitas alterações na coleção, como adicionar, modificar ou excluir elementos, o enumerador ficará invalidado e a próxima chamada para MoveNext ou Reset gera uma exceção InvalidOperationException. Se a coleção é modificada entre MoveNext e Current, Current retornará o elemento que é definido, mesmo se o enumerador está já invalidado.
+- Inicialmente, o enumerador é posicionado antes do primeiro elemento na coleção (index = -1). Nesta posição, se for chamada a propriedade Current ocorrerá uma exceção. O método Reset traz o enumerador de volta para essa posição. 
+- A propriedade Current retorna o mesmo objeto até que os métodos MoveNext ou Reset sejam chamados. Para ler o primeiro valor de Current, você deve chamar o método MoveNext para avançar o enumerador do primeiro elemento da coleção.Para voltar para o primeiro valor Current, deve-se chamar Reset seguido de um MoveNext;
+- O método MoveNext define a propriedade Current para o próximo elemento. Se MoveNext passar o final da coleção, o enumerador estará posicionado após o último elemento na coleção e MoveNext retornará false. Chamadas subseqüentes para MoveNext também retornam false, se houver uma chamada de Current gera uma exceção;
+- Os enumeradores podem ser usados para ler dados em uma coleção, mas não podem modificar estes dados.Se forem feitas alterações na coleção, como adicionar, modificar ou excluir elementos, o enumerador ficará invalidado e a próxima chamada para MoveNext ou Reset gera uma exceção InvalidOperationException. Se a coleção é modificada entre MoveNext e Current, Current retornará o elemento que é definido, mesmo se o enumerador está já invalidado.
 
 A instrução foreach(C#)/for each(VB) oculta a complexidade dos enumeradores. Portanto é recomendável usar foreach/for each ao invés de tentar manipular diretamente o enumerador. Quando utilizamos um foreach, internamente o C# chama o método GetEnumerator da coleção e a cada condição do loop ele executa um MoveNext. Conforme o exemplo a seguir que percorre um array de inteiros:
 

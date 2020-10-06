@@ -34,14 +34,13 @@ namespace class_NetworkStream_server
 
                     // qualquer comunicacao com o cliente remoto usando o TcpClient pode comecar aqui
                     string responseString = "Conectado ao servidor";
+                    Byte[] sendBytes = Encoding.ASCII.GetBytes(responseString);
+                    networkStream_write.Write(sendBytes, 0, sendBytes.Length);
 
                     int contagem = 0;
                     bool terminado = false;
                     while (!terminado)
                     {
-                        Byte[] sendBytes = Encoding.ASCII.GetBytes(responseString + " - " + contagem);
-
-                        networkStream_write.Write(sendBytes, 0, sendBytes.Length);
 
                         // le o stream em um array de bytes
                         byte[] bytes = new byte[tcpClient.ReceiveBufferSize + 1];
@@ -52,7 +51,11 @@ namespace class_NetworkStream_server
                         string clientdata = Encoding.ASCII.GetString(bytes);
 
                         clientdata = clientdata.Replace("\0", "");
-                        Console.WriteLine(clientdata);
+                        Console.WriteLine(("Client enviou: " + clientdata));
+
+                        sendBytes = Encoding.ASCII.GetBytes(clientdata);
+                        networkStream_write.Write(sendBytes, 0, sendBytes.Length);
+                        Console.WriteLine(("Mensagem enviada: " + clientdata));
 
                         responseString = "";
                         contagem++;
